@@ -6,9 +6,11 @@
   </div>
 </template>
 
+
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import Home from './components/Home.vue'
+
 export default {
   name: 'App',
   components: {
@@ -18,9 +20,11 @@ export default {
 }
 </script>
 
+
 <style lang="scss">
 @import 'scss/commons.scss';
 @import 'scss/colors.scss';
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
