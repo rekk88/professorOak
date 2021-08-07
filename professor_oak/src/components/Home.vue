@@ -21,11 +21,11 @@ export default {
 
 <style lang="scss" scoped>
 .home_wrap {
-    background-image: url('../assets/images/home_bg.jpg');
-    height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: initial;
+  background-image: url('../assets/images/home_bg.jpg');
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: initial;
 }
 
 .debug {
@@ -47,7 +47,6 @@ export default {
 
   font-family: sans-serif;
   color: var(--white);
-
 
   background-color: rgba(196, 203, 208, .3);
   border-radius: 6px;
