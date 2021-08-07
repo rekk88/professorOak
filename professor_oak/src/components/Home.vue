@@ -1,13 +1,17 @@
 <template>
   <div class="home_wrap">
-      <div class="home_content container">
-        <span class="debug">Home test</span>
+    <div class="home_content container">
+      <div class="text-center debug">Home test</div>
         
-        <!-- test blurr -->
-        <div class="box">
-          <span>Test blurr</span>
+      <!-- test blurr -->
+      <div class="poke_card mt-5">
+        <div class="me-5">Diglett</div>
+        <div class="container_image me-5">
+          <img src="../assets/images/home_bg.jpg" alt="poke" class="">
         </div>
+        <div class="text-start">Se Diglett attraversa un terreno nel corso dei suoi scavi, lo lascia perfettamente lavorato e pronto per la semina.</div>
       </div>
+    </div>
   </div>
 </template>
 
@@ -21,41 +25,50 @@ export default {
 
 <style lang="scss" scoped>
 .home_wrap {
-  background-image: url('../assets/images/home_bg.jpg');
   height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: initial;
+  background-image: url('../assets/images/home_bg.jpg');
+  background-size: initial; 
+  background-position: cover;
+  background-repeat: repeat;
 }
 
 .debug {
   color: var(--red);
 }
 
-.container {
+.poke_card {
   display: flex;
-  width: 100%;
-  height: 100%;
+  width: 50%;
+  height: 30%;
 
-  align-items: center;
-  justify-content: center;
-}
-
-.box {
-  max-width: 50%;
-  max-height: 50%;
+  align-items: start;
+  justify-content: start;
 
   font-family: sans-serif;
-  color: var(--white);
-
-  background-color: rgba(196, 203, 208, .3);
-  border-radius: 6px;
   text-align: center;
   line-height: 2;
+  color: var(--white);
 
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
+  // ! blur non va
+  background-color: var(--transparent-grey);
+  backdrop-filter: blur(100px);
+  // ! blur non va
+
+  border: 1px solid var(--transparent-grey);
+  border-radius: 6px;
+  box-shadow: 5px 8px var(--ultra-transparent-grey);
 
   padding: 22px 44px;
+
+
+  .container_image {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+
+    img {
+      width: 100%;
+    }
+  }
 }
 </style>
