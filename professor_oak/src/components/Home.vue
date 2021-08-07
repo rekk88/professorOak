@@ -27,6 +27,7 @@ export default {
 .home_wrap {
   height: 100vh;
   background-image: url('../assets/images/home_bg.jpg');
+
   background-size: initial; 
   background-position: cover;
   background-repeat: repeat;
@@ -49,26 +50,28 @@ export default {
   line-height: 2;
   color: var(--white);
 
-  // ! blur non va
   background-color: var(--transparent-grey);
-  backdrop-filter: blur(100px);
-  // ! blur non va
-
   border: 1px solid var(--transparent-grey);
   border-radius: 6px;
   box-shadow: 5px 8px var(--ultra-transparent-grey);
 
   padding: 22px 44px;
 
-
   .container_image {
     width: 150px;
     height: 150px;
     object-fit: contain;
-
+    
     img {
       width: 100%;
     }
+  }
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .home_wrap {
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
   }
 }
 </style>
