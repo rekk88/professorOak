@@ -1,6 +1,8 @@
 <template>
-  <div>
-      Home test
+  <div class="home_wrap">
+      <div class="home_content container">
+        Home test
+      </div>
   </div>
 </template>
 
@@ -11,5 +13,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.home_wrap{
+    background-image: url('../assets/images/home_bg.jpg');
+    height: 100vh;
+    background-repeat: no-repeat;
+}
 </style>
