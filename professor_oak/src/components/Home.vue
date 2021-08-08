@@ -50,9 +50,8 @@ export default {
   color: var(--white);
 
   background-color: var(--transparent-grey);
-  -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
-  
+
   border: 1px solid var(--transparent-grey);
   border-radius: 6px;
   box-shadow: 5px 8px var(--ultra-transparent-grey);
@@ -67,13 +66,6 @@ export default {
     img {
       width: 100%;
     }
-  }
-}
-
-@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-  .home_wrap {
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
   }
 }
 </style>
