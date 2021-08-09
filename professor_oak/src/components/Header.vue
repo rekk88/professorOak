@@ -15,9 +15,26 @@
       </div>
 
       <div class="col-lg-6">
-        <nav class="my_nav navbar">
+        <nav class="my_nav navbar navbar-nav navbar-collapse">
           <div class="container-fluid">
             <span class="navbar-text">Gotta catch 'em all!</span>
+
+             <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" 
+                   data-bs-toggle="dropdown" 
+                   href="#" role="button" 
+                   aria-expanded="false">
+                    Filter by type
+                  </a>
+                  
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Normal</a></li>
+                  <li><a class="dropdown-item" href="#">Fire</a></li>
+                  <li><a class="dropdown-item" href="#">Water</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Other</a></li>
+                </ul>
+              </li>
           </div>
         </nav>
       </div>
