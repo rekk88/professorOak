@@ -3,7 +3,11 @@
 <div class="card poke_card container border-0" style="width: 18rem;">
   <img src="../assets/images/38.png" class="card-img-top rounded-circle" alt="sprite">
   <div class="card-body">
-    <h5 class="card-title">Fox</h5>
+    <h5 class="card-title">
+        <!-- pokemon id and name here -->
+        <span class="pokemon_number">#20</span> <span class="pokemon_name">Fox</span>
+        
+    </h5>
     <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="btn btn-primary">Go somewhere</a> -->
   </div>
@@ -32,8 +36,15 @@ export default {
     box-shadow: -1px 1px 5px 9px var(--ultra-transparent-grey);
     padding: 15px;
   }
-
-  padding: 22px 44px;
+  .card-body{
+      .card-title{
+        font-weight: 600;
+        .pokemon_number{
+            color: var(--grey);
+        }
+      }
+  }
+  padding: 0px 44px;
 
 }
 </style>

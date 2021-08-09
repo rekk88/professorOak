@@ -15,12 +15,16 @@
               </div>
             </div>
         </div>
-      <div class="container d-flex justify-content-center col-9 debug2">
+      <div class="container d-flex justify-content-center align-items-start col-9 py-3 debug2">
        
         <div class="row row-cols-3">
-          <div class="col"> <Card /> </div>
-          <div class="col"> <Card /> </div>
-          <div class="col"> <Card /> </div>
+          <div class="col card_wrap"> <Card /> </div>
+          <div class="col card_wrap"> <Card /> </div>
+          <div class="col card_wrap"> <Card /> </div>
+          <div class="col card_wrap"> <Card /> </div>
+          <div class="col card_wrap"> <Card /> </div>
+          <div class="col card_wrap"> <Card /> </div>
+          
           <!-- <div class="col"> <Card /> </div> -->
         </div>
         
@@ -61,6 +65,11 @@ export default {
     }
     .main_content_wrap{
       height: 80%;
+
+      .card_wrap{
+        height: max-content;
+
+      }
     }
   }
   
