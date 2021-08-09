@@ -38,6 +38,7 @@ export default {
     border: 1px solid var(--transparent-grey);
     border-radius: 6px;
     box-shadow: -1px 1px 5px 9px var(--ultra-transparent-grey);
+    padding: 15px;
   }
  
   
