@@ -33,10 +33,4 @@ export default {
   background-position: cover;
   background-repeat: no-repeat;
 }
-
-.debug {
-  color: var(--red);
-}
-
-
 </style>

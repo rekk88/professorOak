@@ -1,6 +1,8 @@
 <template>
-  <div class="text-center debug">Home test</div>
-  
+<div>
+  <div class="text-center mb-5 debug">Home test</div>
+</div>
+
 </template>
 
 
@@ -13,5 +15,8 @@ export default {
 
 
 <style lang="scss" scoped>
+.debug {
+  color: var(--red);
+}
 
 </style>
