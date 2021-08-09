@@ -27,7 +27,7 @@
                     Filter by type
                   </a>
                   
-                <ul class="dropdown-menu position-absolute">
+                <ul class="dropdown-menu position-absolute my_translate">
                   <li><a class="dropdown-item" href="#">Normal</a></li>
                   <li><a class="dropdown-item" href="#">Fire</a></li>
                   <li><a class="dropdown-item" href="#">Water</a></li>
@@ -58,9 +58,12 @@ export default {
 
 .my_nav {
   background-color: var(--transparent-grey);
-  backdrop-filter: blur(5px);
 
   border: 1px solid var(--transparent-grey);
   border-radius: 6px;
+}
+
+.my_translate {
+  transform: translate(-30px);
 }
 </style>
