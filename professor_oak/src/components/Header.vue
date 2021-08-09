@@ -20,14 +20,14 @@
             <span class="navbar-text">Gotta catch 'em all!</span>
 
              <li class="nav-item dropdown position-relative">
-                <a class="nav-link dropdown-toggle" 
+                <a class="nav-link link-success dropdown-toggle" 
                    data-bs-toggle="dropdown" 
                    href="#" role="button" 
                    aria-expanded="false">
                     Filter by type
                   </a>
                   
-                <ul class="dropdown-menu position-absolute my_translate">
+                <ul class="dropdown-menu position-absolute my_translate mt-2 p-1 my_drpo-menu_color">
                   <li><a class="dropdown-item" href="#">Normal</a></li>
                   <li><a class="dropdown-item" href="#">Fire</a></li>
                   <li><a class="dropdown-item" href="#">Water</a></li>
@@ -64,6 +64,10 @@ export default {
 }
 
 .my_translate {
-  transform: translate(-30px);
+  transform: translate(-32px);
+}
+
+.my_drpo-menu_color {
+  background-color: var(--transparent-grey);
 }
 </style>
