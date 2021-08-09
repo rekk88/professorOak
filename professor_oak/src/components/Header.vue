@@ -19,7 +19,7 @@
           <div class="container-fluid">
             <span class="navbar-text">Gotta catch 'em all!</span>
 
-             <li class="nav-item dropdown">
+             <li class="nav-item dropdown position-relative">
                 <a class="nav-link dropdown-toggle" 
                    data-bs-toggle="dropdown" 
                    href="#" role="button" 
@@ -27,7 +27,7 @@
                     Filter by type
                   </a>
                   
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu position-absolute">
                   <li><a class="dropdown-item" href="#">Normal</a></li>
                   <li><a class="dropdown-item" href="#">Fire</a></li>
                   <li><a class="dropdown-item" href="#">Water</a></li>
