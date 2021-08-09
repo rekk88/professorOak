@@ -7,7 +7,7 @@
       <div class="poke_card mt-5">
         <div class="me-5">Diglett</div>
         <div class="container_image me-5">
-          <img src="../assets/images/home_bg.jpg" alt="poke" class="">
+          <img src="../assets/images/38.png" alt="poke" class="">
         </div>
         <div class="text-start">Se Diglett attraversa un terreno nel corso dei suoi scavi, lo lascia perfettamente lavorato e pronto per la semina.</div>
       </div>
@@ -26,10 +26,10 @@ export default {
 <style lang="scss" scoped>
 .home_wrap {
   height: 100vh;
-  background-image: url('../assets/images/home_bg.jpg');
+  background-image: url('../assets/images/home_bg2.jpg');
   background-size: initial; 
   background-position: cover;
-  background-repeat: repeat;
+  background-repeat: no-repeat;
 }
 
 .debug {
