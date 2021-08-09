@@ -4,8 +4,15 @@
       <Header />
         
       <!-- test blurr -->
-      <div class="container d-flex">
-        <Card />
+      <div class="container d-flex justify-content-center">
+        <div class="row row-cols-4">
+          <div class="col"> <Card /> </div>
+          <div class="col"> <Card /> </div>
+          <div class="col"> <Card /> </div>
+          <div class="col"> <Card /> </div>
+          
+
+        </div>
         
       </div>
     </div>
