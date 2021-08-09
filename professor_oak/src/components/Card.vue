@@ -1,6 +1,6 @@
 <template>
  
-<div class="card poke_card" style="width: 18rem;">
+<div class="card poke_card container" style="width: 18rem;">
   <img src="../assets/images/38.png" class="card-img-top" alt="sprite">
   <div class="card-body">
     <h5 class="card-title">Fox</h5>
