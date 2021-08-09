@@ -8,14 +8,14 @@
         
       <!-- test blurr -->
       <div class="main_content_wrap container d-flex">
-         <div class="col debug2">
-            <div class="row row-col">
-              <div class="col">
+         <div class="col overflow-auto debug2">
+            <div class="">
+              <div class="p-0">
                 <Sidebar />
               </div>
             </div>
         </div>
-      <div class="container d-flex justify-content-center align-items-start col-9 py-3 overflow-auto debug2">
+      <div class="container d-flex justify-content-center align-items-start col-10 py-3 overflow-auto debug2">
        
         <div class="row row-cols-3">
           <div class="col card_wrap"> <Card /> </div>
