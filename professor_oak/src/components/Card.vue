@@ -25,7 +25,6 @@ export default {
 //   align-items: start;
 //   justify-content: start;
 
-  font-family: sans-serif;
   text-align: center;
   line-height: 2;
   color: var(--white);
