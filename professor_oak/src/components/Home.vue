@@ -1,20 +1,32 @@
 <template>
   <div class="home_wrap">
     <div class="home_content">
-      <Header />
+      <div class="header_wrap"> 
+        <Header />
+
+      </div>
         
       <!-- test blurr -->
-      <div class="container d-flex justify-content-center">
-        <div class="row row-cols-4">
+      <div class="main_content_wrap container d-flex">
+         <div class="col debug2">
+            <div class="row row-col">
+              <div class="col">
+                sidebar test
+              </div>
+            </div>
+        </div>
+      <div class="container d-flex justify-content-center col-9 debug2">
+       
+        <div class="row row-cols-3">
           <div class="col"> <Card /> </div>
           <div class="col"> <Card /> </div>
           <div class="col"> <Card /> </div>
-          <div class="col"> <Card /> </div>
-          
-
+          <!-- <div class="col"> <Card /> </div> -->
         </div>
         
       </div>
+      </div>
+     
     </div>
   </div>
 </template>
@@ -42,5 +54,15 @@ export default {
   background-size: initial;
   background-position: cover;
   background-repeat: no-repeat;
+  .home_content{
+    height: 100%;
+    .header_wrap{
+      height: 20%;
+    }
+    .main_content_wrap{
+      height: 80%;
+    }
+  }
+  
 }
 </style>

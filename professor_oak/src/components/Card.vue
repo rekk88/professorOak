@@ -18,13 +18,6 @@ export default {
 
 <style lang="scss" scoped>
 .poke_card {
-//   display: flex;
-//   width: 50%;
-//   height: 30%;
-
-//   align-items: start;
-//   justify-content: start;
-
   text-align: center;
   line-height: 2;
   color: var(--white);
@@ -39,8 +32,6 @@ export default {
     box-shadow: -1px 1px 5px 9px var(--ultra-transparent-grey);
     padding: 15px;
   }
- 
-  
 
   padding: 22px 44px;
 
