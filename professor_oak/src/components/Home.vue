@@ -1,7 +1,7 @@
 <template>
   <div class="home_wrap">
     <div class="home_content container">
-      <div class="text-center debug">Home test</div>
+      <Header />
         
       <!-- test blurr -->
       <Card />
@@ -12,10 +12,13 @@
 
 <script>
 import Card from './Card.vue'
+import Header from './Header.vue'
 
 export default {
-    name:'Home',
-    components :{
+    name: 'Home',
+
+    components: {
+      Header,
       Card
     }
 }
