@@ -1,6 +1,11 @@
 <template>
-<div>
-  <div class="text-center mb-5 debug">Home test</div>
+<div class="container p-5">
+  <nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Navbar</span>
+  </div>
+</nav>
+  
 </div>
 </template>
 
