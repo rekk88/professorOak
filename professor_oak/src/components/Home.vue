@@ -11,21 +11,25 @@
          <div class="col debug2">
             <div class="row row-col">
               <div class="col">
-                sidebar test
+                <Sidebar />
               </div>
             </div>
         </div>
-      <div class="container d-flex justify-content-center align-items-start col-9 py-3 debug2">
+      <div class="container d-flex justify-content-center align-items-start col-9 py-3 overflow-auto debug2">
        
         <div class="row row-cols-3">
           <div class="col card_wrap"> <Card /> </div>
           <div class="col card_wrap"> <Card /> </div>
           <div class="col card_wrap"> <Card /> </div>
+
           <div class="col card_wrap"> <Card /> </div>
           <div class="col card_wrap"> <Card /> </div>
           <div class="col card_wrap"> <Card /> </div>
           
-          <!-- <div class="col"> <Card /> </div> -->
+
+          <div class="col card_wrap"> <Card /> </div>
+          <div class="col card_wrap"> <Card /> </div>
+          <div class="col card_wrap"> <Card /> </div>
         </div>
         
       </div>
@@ -39,13 +43,14 @@
 <script>
 import Card from './Card.vue'
 import Header from './Header.vue'
-
+import Sidebar from './Sidebar.vue'
 export default {
     name: 'Home',
 
     components: {
       Header,
-      Card
+      Card,
+      Sidebar
     }
 }
 </script>

@@ -40,7 +40,7 @@ export default {
       .card-title{
         font-weight: 600;
         .pokemon_number{
-            color: var(--grey);
+          color: var(--grey);
         }
       }
   }
