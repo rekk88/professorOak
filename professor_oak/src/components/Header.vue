@@ -1,5 +1,8 @@
 <template>
+<div class="container">
   <div class="text-center debug">Home test</div>
+
+</div>
   
 </template>
 

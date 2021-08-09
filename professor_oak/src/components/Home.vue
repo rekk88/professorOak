@@ -1,10 +1,13 @@
 <template>
   <div class="home_wrap">
-    <div class="home_content container">
+    <div class="home_content">
       <Header />
         
       <!-- test blurr -->
-      <Card />
+      <div class="container d-flex">
+        <Card />
+        
+      </div>
     </div>
   </div>
 </template>
