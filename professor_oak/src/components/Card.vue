@@ -1,12 +1,5 @@
 <template>
-    <!-- <div class="poke_card mt-5">
-        <div class="me-5">Diglett</div>
-        <div class="container_image me-5">
-          <img src="../assets/images/38.png" alt="poke" class="">
-        </div>
-        <div class="text-start">Se Diglett attraversa un terreno nel corso dei suoi scavi, lo lascia perfettamente lavorato e pronto per la semina.</div>
-    </div> -->
-
+ 
 <div class="card poke_card" style="width: 18rem;">
   <img src="../assets/images/38.png" class="card-img-top" alt="sprite">
   <div class="card-body">
@@ -47,14 +40,5 @@ export default {
 
   padding: 22px 44px;
 
-//   .container_image {
-//     width: 150px;
-//     height: 150px;
-//     object-fit: contain;
-    
-//     img {
-//       width: 100%;
-//     }
-//   }
 }
 </style>
