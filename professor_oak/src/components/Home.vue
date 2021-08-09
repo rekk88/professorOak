@@ -27,7 +27,7 @@ export default {
 .home_wrap {
   height: 100vh;
   background-image: url('../assets/images/home_bg2.jpg');
-  background-size: initial; 
+  background-size: initial;
   background-position: cover;
   background-repeat: no-repeat;
 }
@@ -54,7 +54,8 @@ export default {
 
   border: 1px solid var(--transparent-grey);
   border-radius: 6px;
-  box-shadow: 5px 8px var(--ultra-transparent-grey);
+  box-shadow: -1px 1px 5px 9px var(--ultra-transparent-grey);
+  
 
   padding: 22px 44px;
 
