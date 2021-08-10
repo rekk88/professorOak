@@ -71,7 +71,7 @@ export default {
     }
 
     .main_content_wrap {
-      height: 80%;
+      height: 70%; // ? come ti sembra?
       box-shadow: -1px 1px 5px 9px var(--ultra-transparent-grey);
 
       .card_wrap {
