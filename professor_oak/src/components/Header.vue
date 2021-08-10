@@ -11,7 +11,7 @@
               </button>
             </form>
 
-            <li class="my_nav nav nav-item dropdown position-relative">
+            <li class="nav nav-item dropdown position-relative">
               <a class="nav-link link-success dropdown-toggle" 
                  data-bs-toggle="dropdown" 
                  href="#" role="button" 
