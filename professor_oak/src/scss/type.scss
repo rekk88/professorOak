@@ -1,17 +1,43 @@
-.fire {
+.pokemon_type {
   width: 35%;
   max-width: 110px;
 
   font-size: 13px;
-  letter-spacing: .1rem;
   line-height: 18px;
   text-transform: none;
   text-align: center;
 
+  border-radius: 3px;
+  margin: 0 auto;
+}
+
+
+.fire {
   color: #fff;
   background-color: #fd7d24;
   background: linear-gradient(180deg, #fd7d24 50%, #fd7d24 50%);
+}
 
-  border-radius: 3px;
-  margin: 0 auto;
+.grass {
+  color: #212121;
+  background-color: #9bcc50;
+  background: linear-gradient(180deg, #9bcc50 50%, #9bcc50 50%);
+}
+
+.poison {
+  color: #fff;
+  background-color: #b97fc9;
+  background: linear-gradient(80deg, #b97fc9 50%, #b97fc9 50%);
+}
+
+.water {
+  color: #fff;
+  background-color: #4592c4;
+  background: linear-gradient(180deg, #4592c4 50%, #4592c4 50%);
+}
+
+.flying {
+  color: #212121;
+  background-color: #3dc7ef;
+  background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
 }
