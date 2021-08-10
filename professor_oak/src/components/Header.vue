@@ -10,6 +10,23 @@
                 <i class="bi bi-search"></i>
               </button>
             </form>
+
+            <li class="my_nav nav nav-item dropdown position-relative">
+              <a class="nav-link link-success dropdown-toggle" 
+                 data-bs-toggle="dropdown" 
+                 href="#" role="button" 
+                 aria-expanded="false">
+                  Filter by type
+              </a>
+                  
+              <ul class="dropdown-menu position-absolute my_translate mt-3 p-1 my_drpo-menu_color">
+                <li><a class="dropdown-item" href="#">Normal</a></li>
+                <li><a class="dropdown-item" href="#">Fire</a></li>
+                <li><a class="dropdown-item" href="#">Water</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Other</a></li>
+              </ul>
+            </li>
           </div>
         </nav>
       </div>
@@ -19,22 +36,12 @@
           <div class="container-fluid">
             <span class="navbar-text">Gotta catch 'em all!</span>
 
-             <li class="nav-item dropdown position-relative">
-                <a class="nav-link link-success dropdown-toggle" 
-                   data-bs-toggle="dropdown" 
-                   href="#" role="button" 
-                   aria-expanded="false">
-                    Filter by type
-                  </a>
-                  
-                <ul class="dropdown-menu position-absolute my_translate mt-2 p-1 my_drpo-menu_color">
-                  <li><a class="dropdown-item" href="#">Normal</a></li>
-                  <li><a class="dropdown-item" href="#">Fire</a></li>
-                  <li><a class="dropdown-item" href="#">Water</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Other</a></li>
-                </ul>
-              </li>
+            <span class="btn btn-outline-success">
+              <i class="bi bi-arrow-repeat me-2"></i>
+              Surprise me
+            </span>
+
+           
           </div>
         </nav>
       </div>
@@ -63,12 +70,9 @@ export default {
   border-radius: 6px;
 }
 
-.my_translate {
-  transform: translate(-32px);
-}
-
 .my_drpo-menu_color {
   background-color: var(--ultra-transparent-grey);
+  backdrop-filter: blur(5px);
 }
 
 .dropdown-item:hover {
