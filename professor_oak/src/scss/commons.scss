@@ -16,16 +16,15 @@ body{
 .debug2{
   border: 1px solid white;
 }
-
+// overflow no-scroll-bar
 .overflow{
   overflow-y: scroll;
 }
-
 .scrollbar::-webkit-scrollbar{
   display: none;
 }
 .scrollbar{
-  // -ms-overflow-style: none;  /* IE and Edge */
+  -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
 
