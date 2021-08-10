@@ -47,22 +47,24 @@ name:'Sidebar'
 </script>
 
 <style lang="scss" scoped>
-
-.sidebar_wrap{
-    .pokemon_list{
-        list-style: none;
-        font-weight: 600;
-        li{    // selettore con tag li da eliminare
-            width: 100%;
-            line-height: 1.6;
-        }
-        .pokemon_list_item{
-            text-shadow: -1px 1px var(--ultra-transparent-grey);
-        }
-        .pokemon_list_item:hover{
-            background-color: var(--ultra-transparent-grey);
-            border-radius: 50rem !important;
-        }
+.sidebar_wrap {
+  .pokemon_list {
+    list-style: none;
+    font-weight: 600;
+    
+    li {    // selettore con tag li da eliminare
+      width: 100%;
+      line-height: 1.6;
     }
+    
+    .pokemon_list_item {
+      text-shadow: -1px 1px var(--ultra-transparent-grey);
+    }
+    
+    .pokemon_list_item:hover {
+      background-color: var(--ultra-transparent-grey);
+      border-radius: 50rem !important;
+    }
+  }
 }
 </style>
