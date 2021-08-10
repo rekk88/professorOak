@@ -21,6 +21,8 @@ export default {
 <style lang="scss">
 @import 'scss/commons.scss';
 @import 'scss/colors.scss';
+@import 'scss/type.scss';
+
 
 #app {
   // font-family: Avenir, Helvetica, Arial, sans-serif;
