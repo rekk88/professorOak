@@ -56,6 +56,9 @@ name:'Sidebar'
             width: 100%;
             line-height: 1.6;
         }
+        .pokemon_list_item{
+            text-shadow: -1px 1px var(--ultra-transparent-grey);
+        }
         .pokemon_list_item:hover{
             background-color: var(--ultra-transparent-grey);
             border-radius: 50rem !important;
