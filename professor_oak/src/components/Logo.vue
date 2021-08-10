@@ -7,7 +7,6 @@
 
 
 <script>
-
 export default {
     name:'Logo',
 }
@@ -22,5 +21,4 @@ img:first-child {
 img:nth-child(2) {
   width: 200px;
 }
-
 </style>

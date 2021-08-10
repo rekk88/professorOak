@@ -45,15 +45,16 @@ import Card from './Card.vue'
 import Logo from './Logo.vue'
 import Header from './Header.vue'
 import Sidebar from './Sidebar.vue'
-export default {
-    name: 'Home',
 
-    components: {
-      Logo,
-      Header,
-      Card,
-      Sidebar
-    }
+export default {
+  name: 'Home',
+
+  components: {
+    Logo,
+    Header,
+    Card,
+    Sidebar
+  }
 }
 </script>
 
@@ -65,20 +66,22 @@ export default {
   background-size: initial;
   background-position: cover;
   background-repeat: no-repeat;
-  .home_content{
+
+  .home_content {
     height: 100%;
-    .header_wrap{
+
+    .header_wrap {
       height: 20%;
     }
-    .main_content_wrap{
+
+    .main_content_wrap {
       height: 80%;
       box-shadow: -1px 1px 5px 9px var(--ultra-transparent-grey);
-      .card_wrap{
-        height: max-content;
 
+      .card_wrap {
+        height: max-content;
       }
     }
   }
-  
 }
 </style>
