@@ -2,12 +2,12 @@
   <div class="home_wrap pb-4">
     <div class="home_content">
       <div class="header_wrap"> 
+        <Logo />
         <Header />
-
       </div>
         
       <!-- test blurr -->
-      <div class="main_content_wrap container d-flex p-0 rounded">
+      <div class="main_content_wrap container d-flex p-0 rounded mt-5">
          <div class="col overflow scrollbar">
             <div class="">
               <div class="p-0 ">
@@ -42,12 +42,14 @@
 
 <script>
 import Card from './Card.vue'
+import Logo from './Logo.vue'
 import Header from './Header.vue'
 import Sidebar from './Sidebar.vue'
 export default {
     name: 'Home',
 
     components: {
+      Logo,
       Header,
       Card,
       Sidebar

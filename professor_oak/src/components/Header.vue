@@ -1,5 +1,5 @@
 <template>
-  <div class="container p-5">
+  <div class="container p-1">
     <div class="row">
       <div class="col-lg-6">
         <nav class="my_nav navbar">
