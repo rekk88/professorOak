@@ -19,7 +19,7 @@
                   Filter by type
               </a>
                   
-              <ul class="dropdown-menu position-absolute my_translate mt-3 p-1 my_drpo-menu_color">
+              <ul class="dropdown-menu position-absolute mt-3 p-1 my_drpo-menu_color">
                 <li><a class="dropdown-item" href="#">Normal</a></li>
                 <li><a class="dropdown-item" href="#">Fire</a></li>
                 <li><a class="dropdown-item" href="#">Water</a></li>
@@ -40,8 +40,6 @@
               <i class="bi bi-arrow-repeat me-2"></i>
               Surprise me
             </span>
-
-
           </div>
         </nav>
       </div>
@@ -59,10 +57,6 @@ export default {
 
 
 <style lang="scss" scoped>
-.debug {
-  color: var(--red);
-}
-
 .my_nav {
   background-color: var(--transparent-grey);
 
@@ -77,7 +71,7 @@ export default {
 
 .dropdown-item:hover {
   background-color: var(--transparent-grey);
-  border-radius: 50rem !important;
+  border-radius: 50rem!important;
 }
 
 input:focus { 
