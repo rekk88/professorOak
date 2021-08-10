@@ -34,7 +34,7 @@
       <div class="col-lg-6">
         <nav class="my_nav navbar navbar-nav navbar-collapse">
           <div class="container-fluid">
-            <span class="navbar-text">Gotta catch 'em all!</span>
+            <span class="navbar-text tag_line">Gotta catch 'em all!</span>
 
             <span class="btn btn-outline-success">
               <i class="bi bi-arrow-repeat me-2"></i>
@@ -75,7 +75,11 @@ export default {
 }
 
 input:focus { 
-  border-color: #198754;
-  box-shadow: 1px 1px 5px #198754;
+  border-color: var(--greenBulba);
+  box-shadow: 1px 1px 5px var(--greenBulba);
+}
+
+.tag_line {
+  color: var(--greenBulba);
 }
 </style>
