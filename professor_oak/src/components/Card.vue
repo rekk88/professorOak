@@ -1,6 +1,14 @@
 <template>
-  <div class="card poke_card container border-0" style="width: 18rem;">
-    <img src="../assets/images/38.png" class="card-img-top rounded-circle" alt="sprite">
+  <div class="card poke_card flip_card container border-0" style="width: 18rem;">
+    <div class="flip_inner">
+      <div class="flip_front">
+        <img src="../assets/images/38.png" class="card-img-top rounded-circle" alt="sprite">
+      </div>
+      <div class="flip_back rounded-circle">
+        back text
+      </div>
+    </div>
+    
     <div class="card-body">
       <h5 class="card-title">
         <!-- pokemon id and name here -->

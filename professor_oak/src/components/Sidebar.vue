@@ -23,26 +23,13 @@
       <li class="pokemon_list_item ps-2">#10 ditto</li>
       <li class="pokemon_list_item ps-2">#10 ditto</li>
       <li class="pokemon_list_item ps-2">#10 ditto</li>
-      <li>#10 ditto</li>
-      <li>#10 ditto</li>
-      <li>#10 ditto</li>
-      <li>#10 ditto</li>
-      <li>#10 ditto</li>
-      <li>#10 ditto</li>
-      <li>#10 ditto</li>
-      <li>#10 ditto</li>
-      <li>#10 ditto</li>
-      <li>#10 ditto</li>
-      <li>#10 ditto</li>
-      <li>#10 ditto</li>
-      <li>#10 ditto</li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
-name:'Sidebar'
+name:'Sidebar',
 }
 </script>
 

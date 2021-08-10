@@ -34,3 +34,27 @@ body {
   scrollbar-width: none;  /* Firefox */
 }
 
+// flip card
+.flip_card{
+  background-color: transparent;
+}
+.flip_inner{
+  position:relative;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.flip_front , .flip_back{
+  // position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip_card:hover .flip_inner {
+  transform: rotateY(180deg);
+}
+
+.flip_back{
+  transform: rotateY(180deg);
+}
