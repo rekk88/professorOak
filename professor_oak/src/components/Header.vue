@@ -68,6 +68,11 @@ export default {
 }
 
 .my_drpo-menu_color {
+  background-color: var(--ultra-transparent-grey);
+}
+
+.dropdown-item:hover {
   background-color: var(--transparent-grey);
+  border-radius: 50rem !important;
 }
 </style>
