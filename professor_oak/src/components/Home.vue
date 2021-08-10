@@ -6,7 +6,6 @@
         <Header />
       </div>
         
-      <!-- test blurr -->
       <div class="main_content_wrap container d-flex p-0 rounded mt-5">
          <div class="col overflow scrollbar">
             <div class="">
