@@ -10,31 +10,28 @@
       <div class="main_content_wrap container d-flex p-0 rounded mt-5">
          <div class="col overflow scrollbar">
             <div class="">
-              <div class="p-0 ">
+              <div class="p-0">
                 <Sidebar />
               </div>
             </div>
         </div>
-      <div class="container d-flex justify-content-center align-items-start col-10 py-3 overflow scrollbar">
-       
-        <div class="row row-cols-3">
-          <div class="col card_wrap"> <Card /> </div>
-          <div class="col card_wrap"> <Card /> </div>
-          <div class="col card_wrap"> <Card /> </div>
 
-          <div class="col card_wrap"> <Card /> </div>
-          <div class="col card_wrap"> <Card /> </div>
-          <div class="col card_wrap"> <Card /> </div>
-          
+        <div class="container d-flex justify-content-center align-items-start col-10 py-3 overflow scrollbar">
+          <div class="row row-cols-3">
+            <div class="col card_wrap"> <Card /> </div>
+            <div class="col card_wrap"> <Card /> </div>
+            <div class="col card_wrap"> <Card /> </div>
 
-          <div class="col card_wrap"> <Card /> </div>
-          <div class="col card_wrap"> <Card /> </div>
-          <div class="col card_wrap"> <Card /> </div>
+            <div class="col card_wrap"> <Card /> </div>
+            <div class="col card_wrap"> <Card /> </div>
+            <div class="col card_wrap"> <Card /> </div>
+            
+            <div class="col card_wrap"> <Card /> </div>
+            <div class="col card_wrap"> <Card /> </div>
+            <div class="col card_wrap"> <Card /> </div>
+          </div>
         </div>
-        
       </div>
-      </div>
-     
     </div>
   </div>
 </template>
