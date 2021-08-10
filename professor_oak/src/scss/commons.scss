@@ -8,22 +8,24 @@
   box-sizing: border-box;
 }
 
-body{
+body {
   font-family: 'Titillium Web', sans-serif;
 }
 
-
-.debug2{
+.debug2 {
   border: 1px solid white;
 }
+
 // overflow no-scroll-bar
-.overflow{
+.overflow { 
   overflow-y: scroll;
 }
-.scrollbar::-webkit-scrollbar{
+
+.scrollbar::-webkit-scrollbar {
   display: none;
 }
-.scrollbar{
+
+.scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }

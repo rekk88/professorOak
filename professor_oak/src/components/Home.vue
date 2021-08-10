@@ -1,5 +1,5 @@
 <template>
-  <div class="home_wrap pb-4">
+  <div class="home_wrap pb-4 overflow scrollbar">
     <div class="home_content">
       <div class="header_wrap"> 
         <Logo />
