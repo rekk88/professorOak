@@ -1,15 +1,17 @@
 .fire {
-  border-radius: 3px;
-  line-height: 18px;
+  width: 35%;
   max-width: 110px;
-  margin: 0 1.5625% 0 0;
-  width: 38.4375%;
-  float: left;
+
+  font-size: 13px;
+  letter-spacing: .1rem;
+  line-height: 18px;
   text-transform: none;
-  font-size: 11px;
   text-align: center;
 
-  background: linear-gradient(180deg, #fd7d24 50%, #fd7d24 50%);
-  background-color: #fd7d24;
   color: #fff;
+  background-color: #fd7d24;
+  background: linear-gradient(180deg, #fd7d24 50%, #fd7d24 50%);
+
+  border-radius: 3px;
+  margin: 0 auto;
 }
