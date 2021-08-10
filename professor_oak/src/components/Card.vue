@@ -8,7 +8,12 @@
       </h5>
       
       <!-- type here -->
-      <h6 class="pokemon_type flying">Fire</h6>
+      <h6 class="d-flex">
+        <!-- first -->
+        <span class="pokemon_type ice me-1">Ice</span> 
+        <!-- second -->
+        <span class=" pokemon_type psychic ms-1">Psychic</span>
+      </h6>
 
       <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       <a href="#" class="btn btn-primary">Go somewhere</a> -->
