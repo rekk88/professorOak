@@ -32,7 +32,7 @@ export default {
 <style lang="scss" scoped>
 .poke_card {
   text-align: center;
-  line-height: 2;
+  line-height: 2;   // ! Rivedere!!! 2px???
   color: var(--white);
   background-color: transparent;
 
