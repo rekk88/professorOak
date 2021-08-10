@@ -6,6 +6,7 @@
     <h5 class="card-title">
         <!-- pokemon id and name here -->
         <span class="pokemon_number">#20</span> <span class="pokemon_name">Fox</span>
+        <span class="pokemon_type fire">Fire</span>
         
     </h5>
     <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
