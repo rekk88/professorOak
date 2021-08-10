@@ -1,5 +1,5 @@
 <template>
-  <div class="home_wrap">
+  <div class="home_wrap pb-4">
     <div class="home_content">
       <div class="header_wrap"> 
         <Header />
@@ -7,15 +7,15 @@
       </div>
         
       <!-- test blurr -->
-      <div class="main_content_wrap container d-flex">
-         <div class="col overflow-auto debug2">
+      <div class="main_content_wrap container d-flex p-0">
+         <div class="col overflow-auto">
             <div class="">
               <div class="p-0">
                 <Sidebar />
               </div>
             </div>
         </div>
-      <div class="container d-flex justify-content-center align-items-start col-10 py-3 overflow-auto debug2">
+      <div class="container d-flex justify-content-center align-items-start col-10 py-3 overflow-auto">
        
         <div class="row row-cols-3">
           <div class="col card_wrap"> <Card /> </div>
@@ -70,6 +70,7 @@ export default {
     }
     .main_content_wrap{
       height: 80%;
+      box-shadow: -1px 1px 5px 9px var(--ultra-transparent-grey);
 
       .card_wrap{
         height: max-content;
