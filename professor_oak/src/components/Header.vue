@@ -41,7 +41,7 @@
               Surprise me
             </span>
 
-           
+
           </div>
         </nav>
       </div>
@@ -78,5 +78,10 @@ export default {
 .dropdown-item:hover {
   background-color: var(--transparent-grey);
   border-radius: 50rem !important;
+}
+
+input:focus { 
+  border-color: #198754;
+  box-shadow: 1px 1px 5px #198754;
 }
 </style>
