@@ -1,7 +1,8 @@
 <template>
   <div class="home_wrap pb-4">
     <div class="home_content">
-      <div class="header_wrap"> 
+      <div class="header_wrap">
+        <Logo/>
         <Header 
           :tipi="type"
         />
@@ -45,11 +46,14 @@
 <script>
 import Card from './Card.vue'
 import Header from './Header.vue'
+import Logo from './Logo.vue'
 import Sidebar from './Sidebar.vue'
+
 export default {
     name: 'Home',
     
     components: {
+      Logo,
       Header,
       Card,
       Sidebar
@@ -79,10 +83,10 @@ export default {
   .home_content{
     height: 100%;
     .header_wrap{
-      height: 20%;
+      height: 30%;
     }
     .main_content_wrap{
-      height: 80%;
+      height: 65%;
       box-shadow: -1px 1px 5px 9px var(--ultra-transparent-grey);
       .card_wrap{
         height: max-content;
