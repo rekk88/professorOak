@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Home />
+    <Home :list="pokemon"/>
   </div>
 </template>
 

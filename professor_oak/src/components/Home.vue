@@ -1,36 +1,40 @@
 <template>
-  <div class="home_wrap pb-4 overflow scrollbar">
+  <div class="home_wrap pb-4">
     <div class="home_content">
       <div class="header_wrap"> 
-        <Logo />
         <Header />
+
       </div>
         
-      <div class="main_content_wrap container d-flex p-0 rounded mt-5">
+      <!-- test blurr -->
+      <div class="main_content_wrap container d-flex p-0 rounded">
          <div class="col overflow scrollbar">
             <div class="">
-              <div class="p-0">
-                <Sidebar />
+              <div class="p-0 ">
+                <Sidebar :lista="list"/>
               </div>
             </div>
         </div>
+      <div class="container d-flex justify-content-center align-items-start col-10 py-3 overflow scrollbar">
+       
+        <div class="row row-cols-3">
+          <div class="col card_wrap"> <Card /> </div>
+          <div class="col card_wrap"> <Card /> </div>
+          <div class="col card_wrap"> <Card /> </div>
 
-        <div class="container d-flex justify-content-center align-items-start col-10 py-3 overflow scrollbar">
-          <div class="row row-cols-3">
-            <div class="col card_wrap"> <Card /> </div>
-            <div class="col card_wrap"> <Card /> </div>
-            <div class="col card_wrap"> <Card /> </div>
+          <div class="col card_wrap"> <Card /> </div>
+          <div class="col card_wrap"> <Card /> </div>
+          <div class="col card_wrap"> <Card /> </div>
+          
 
-            <div class="col card_wrap"> <Card /> </div>
-            <div class="col card_wrap"> <Card /> </div>
-            <div class="col card_wrap"> <Card /> </div>
-            
-            <div class="col card_wrap"> <Card /> </div>
-            <div class="col card_wrap"> <Card /> </div>
-            <div class="col card_wrap"> <Card /> </div>
-          </div>
+          <div class="col card_wrap"> <Card /> </div>
+          <div class="col card_wrap"> <Card /> </div>
+          <div class="col card_wrap"> <Card /> </div>
         </div>
+        
       </div>
+      </div>
+     
     </div>
   </div>
 </template>
@@ -38,19 +42,26 @@
 
 <script>
 import Card from './Card.vue'
-import Logo from './Logo.vue'
 import Header from './Header.vue'
 import Sidebar from './Sidebar.vue'
-
 export default {
-  name: 'Home',
+    name: 'Home',
+    
+    components: {
+      Header,
+      Card,
+      Sidebar
+    },
+    props:["list"], //prop in arrivo da App (con il risultato della chiamata axios)
 
-  components: {
-    Logo,
-    Header,
-    Card,
-    Sidebar
-  }
+    data() {
+      return {
+        list2 : this.list,        
+      }
+    },
+    mounted() {
+      console.log(this.list2);
+    },
 }
 </script>
 
@@ -62,20 +73,17 @@ export default {
   background-size: initial;
   background-position: cover;
   background-repeat: no-repeat;
-
-  .home_content {
+  .home_content{
     height: 100%;
-
-    .header_wrap {
+    .header_wrap{
       height: 20%;
     }
-
-    .main_content_wrap {
-      height: 70%; // ? come ti sembra?
+    .main_content_wrap{
+      height: 80%;
       box-shadow: -1px 1px 5px 9px var(--ultra-transparent-grey);
-
-      .card_wrap {
+      .card_wrap{
         height: max-content;
+
       }
     }
   }
