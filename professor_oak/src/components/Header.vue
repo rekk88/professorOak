@@ -48,11 +48,13 @@
 
 <script>
 
+
+
 export default {
   name:'Header',
 
-  components:{
-
+  components: {
+    
   },
 
   props:["tipi"],
