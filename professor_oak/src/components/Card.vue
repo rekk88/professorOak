@@ -5,7 +5,9 @@
         <img src="../assets/images/38.png" class="card-img-top rounded-circle" alt="sprite">
       </div>
       <div class="flip_back rounded-circle">
-        back text
+        <!-- back text -->
+        <img src="../assets/images/5.png" class="card-img-top rounded-circle" alt="back image">
+        <div class="card_back_text">some back text , some more text</div>
       </div>
     </div>
     

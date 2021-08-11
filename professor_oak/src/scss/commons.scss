@@ -35,7 +35,7 @@ body {
 }
 
 // flip card
-.flip_card{
+.flip_card{ //container della card
   background-color: transparent;
 }
 .flip_inner{
@@ -50,11 +50,28 @@ body {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-
+.flip_front{
+  position: absolute;
+}
 .flip_card:hover .flip_inner {
   transform: rotateY(180deg);
 }
+.flip_card:hover .flip_front{
+  //  display: none;
+  // visibility: hidden;
 
+}
 .flip_back{
-  transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    // background-color: blue;
+}
+
+.card_back_text{
+  // display: none;
+  visibility: hidden;
+  transition: visibility 2s linear;
+}
+.flip_card:hover .card_back_text{
+  // display: block;
+  visibility: visible;
 }
