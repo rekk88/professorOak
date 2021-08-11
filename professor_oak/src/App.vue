@@ -19,29 +19,28 @@ export default {
   data() {
     return {
       x : 0,
-      pokemon : 'https://pokeapi.co/api/v2/',
+      url : 'https://pokeapi.co/api/v2/',
       // pokemonList : pokemon + 'pokemon?limit=898',
-      pokemonNames : [],
+      pokemon : [],
       names : [],
     }
   },
   created() {
     console.log("created");
-    console.log("pokemon : " , this.pokemon);
-    axios
-      .get(this.pokemon + 'pokemon?limit=898')
-      .then(response =>{
-        console.log(response.data.results); //object {name , url}
-        this.names = response.data.results;
-        this.names.forEach(element => {
-          this.pokemonNames.push(element.name);
-          
-        });
-        console.log("pokemon list : " , this.pokemonNames);
-      })
+    console.log("pokemon : " , this.url);
+    this.pokemonGetter();
   },
   methods: {
-      
+      pokemonGetter(){
+        axios
+          .get(this.url + 'pokemon?limit=898')
+          .then(response =>{
+            console.log(response.data.results); //object {name , url}
+            this.pokemon = response.data.results; //lista di tutti i pokemon
+           
+            console.log("pokemon list : " , this.pokemon);
+          })
+      }
   },  
 }
 </script>
