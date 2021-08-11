@@ -47,7 +47,8 @@ export default {
   background-color: transparent;
 
   .card-img-top {
-    background-color: var(--transparent-grey);
+    // background-color: var(--grey-card);
+    background-color: var(--dark-grey);
     backdrop-filter: blur(5px);
 
     border: 1px solid var(--transparent-grey);
