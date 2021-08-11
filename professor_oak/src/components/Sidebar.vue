@@ -4,9 +4,11 @@
         <input type="text" class="form-control rounded-pill" placeholder="scrivi roba" aria-label="Search" v-model="ricerca">
     </div>
     <ul class="pokemon_list ps-0 pt-2 overflow scrollbar">
-      
       <li class="pokemon_list_item ps-2" v-for="(item,index) in lista" :key="index">
-        <span class="pokemon_list_number">#{{index+1}} </span><span @click="visualizza(item.url)"><a href="#" class="pokemon_list_name">{{item.name}}</a></span>
+        <span v-if="item.name.includes(ricerca)">
+          <span class="pokemon_list_number">#{{index+1}} </span><span @click="visualizza(item.url)"><a href="#" class="pokemon_list_name">{{item.name}}</a></span>
+
+        </span>
       </li>
     </ul>
   </div>
@@ -23,17 +25,29 @@ data() {
   return {
     ricerca : "",
     k : this.pokemon,  
-
+    filteredList : []
   }
 },
 mounted() {
   console.log(this.lista);
 },
-computed:{
-  functionRicerca(){
-    console.log("input text aggiornato");
-    return "updated";
-  }
+// computed:{
+//   functionRicerca(){
+//     console.log("input text aggiornato");
+//     return "updated";
+//   }
+// },
+updated() {
+  console.log("input text aggiornato : " , this.ricerca) //test log
+  console.log(this.lista);
+  
+  // filtered list
+  // this.lista.forEach(element => {
+  //   if(this.ricerca.includes(element.name)){
+  //     this.filteredList.push()
+  //   }
+  // });
+
 },
 methods: {
   visualizza(url2){ //da implementare prima la pagina del singolo pokemon
