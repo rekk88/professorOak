@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <Home :list="pokemon"/>
+    <Home 
+    :list="pokemon"
+    :type="types"
+  />
   </div>
 </template>
 
@@ -23,7 +26,7 @@ export default {
       // pokemonList : pokemon + 'pokemon?limit=898',
       pokemon : [],
       names : [],
-      type: [],
+      types: [],
     }
   },
   created() {
@@ -47,8 +50,8 @@ export default {
          axios 
           .get(this.url + 'type')
           .then(response => {
-            this.type = response.data.results;
-            console.log("pokemon type: " , this.type);
+            this.types = response.data.results;
+            console.log("pokemon type: " , this.types);
           })
       }
   },  

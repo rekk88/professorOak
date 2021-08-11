@@ -2,7 +2,9 @@
   <div class="home_wrap pb-4">
     <div class="home_content">
       <div class="header_wrap"> 
-        <Header />
+        <Header 
+          :tipi="type"
+        />
 
       </div>
         
@@ -52,11 +54,12 @@ export default {
       Card,
       Sidebar
     },
-    props:["list"], //prop in arrivo da App (con il risultato della chiamata axios)
+    props:["list", "type"], //prop in arrivo da App (con il risultato della chiamata axios)
 
     data() {
       return {
-        list2 : this.list,        
+        list2 : this.list,
+        type2: this.type        
       }
     },
     mounted() {

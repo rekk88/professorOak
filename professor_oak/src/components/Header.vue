@@ -20,11 +20,9 @@
               </a>
                   
               <ul class="dropdown-menu position-absolute mt-3 p-1 my_drpo-menu_color">
-                <li><a class="dropdown-item" href="#">Normal</a></li>
-                <li><a class="dropdown-item" href="#">Fire</a></li>
-                <li><a class="dropdown-item" href="#">Water</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Other</a></li>
+                <li v-for="(item, index) in tipi" :key="index">
+                  <a class="dropdown-item" href="#">{{item.name}}</a>
+                </li>
               </ul>
             </li>
           </div>
@@ -51,7 +49,21 @@
 <script>
 
 export default {
-    name:'Header',
+  name:'Header',
+
+  components:{
+
+  },
+
+  props:["tipi"],
+  
+  data() {
+  return {
+    t : this.types,  
+  }
+}
+
+ 
 }
 </script>
 
