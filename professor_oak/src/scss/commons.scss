@@ -67,14 +67,17 @@ body {
 }
 
 .card_back_text{
-  display: none;
+  // display: none;
   // visibility: hidden;
   // transition: visibility 2s linear;
   opacity: 0;
   transition: opacity 1s linear;
+  height: 0px;
+  transition: height 0.5s linear;
 }
 .flip_card:hover .card_back_text{
-  display: block;
+  // display: block;
   // visibility: visible;
   opacity: 1;
+  height: 40px;
 }
