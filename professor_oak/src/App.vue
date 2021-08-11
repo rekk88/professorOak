@@ -23,6 +23,7 @@ export default {
       // pokemonList : pokemon + 'pokemon?limit=898',
       pokemon : [],
       names : [],
+      type: [],
     }
   },
   created() {
@@ -39,6 +40,15 @@ export default {
             this.pokemon = response.data.results; //lista di tutti i pokemon
            
             console.log("pokemon list : " , this.pokemon);
+          })
+
+          // Type
+
+         axios 
+          .get(this.url + 'type')
+          .then(response => {
+            this.type = response.data.results;
+            console.log("pokemon type: " , this.type);
           })
       }
   },  
