@@ -10,9 +10,9 @@
         
       <!-- test blurr -->
       <div class="main_content_wrap container d-flex p-0 rounded">
-         <div class="col overflow scrollbar">
-            <div class="">
-              <div class="p-0 ">
+         <div class="col">
+            <div class="h_100">
+              <div class="p-0 h_100">
                 <Sidebar :lista="list"/>
               </div>
             </div>

@@ -12,6 +12,10 @@ body {
   font-family: 'Titillium Web', sans-serif;
 }
 
+.h_100{
+  height: 100%;
+}
+
 .debug {
   color: var(--red);
 }
@@ -56,28 +60,18 @@ body {
 .flip_card:hover .flip_inner {
   transform: rotateY(180deg);
 }
-.flip_card:hover .flip_front{
-  //  display: none;
-  // visibility: hidden;
 
-}
 .flip_back{
     transform: rotateY(180deg);
-    // background-color: blue;
 }
 
 .card_back_text{
-  // display: none;
-  // visibility: hidden;
-  // transition: visibility 2s linear;
   opacity: 0;
   transition: opacity 1s linear;
   height: 0px;
   transition: height 0.5s linear;
 }
 .flip_card:hover .card_back_text{
-  // display: block;
-  // visibility: visible;
   opacity: 1;
   height: 40px;
 }
