@@ -20,9 +20,9 @@
               </a>
                   
               <ul class="dropdown-menu position-absolute mt-3 p-1 my_drpo-menu_color">
-                <li v-for="(item, index) in tipi" :key="index">
+                <li v-for="(item, index) in tipi" :key="index" :class="item.name">
                   <a class="dropdown-item" href="#">{{item.name}}</a>
-                </li>
+                </li> 
               </ul>
             </li>
           </div>

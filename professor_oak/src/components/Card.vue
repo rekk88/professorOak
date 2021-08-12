@@ -16,7 +16,7 @@
         <!-- pokemon id and name here -->
 
         <!-- <span class="pokemon_number">#20</span> <span class="pokemon_name">{{n}}</span> -->
-        <span class="pokemon_number">{{numberPokedex}}</span> <span class="pokemon_name"> <a :href="urlPokemon">{{n}}</a></span>
+        <span class="pokemon_number">#{{numberPokedex}}</span> <span class="pokemon_name text-capitalize"><a :href="urlPokemon" class="text-decoration-none">{{n}}</a></span>
       </h5>
       
       <!-- type here -->
@@ -47,7 +47,7 @@ export default {
 //    nome : String,
 //    urlPokemon : String
 //  }
-props:["n","urlPokemon", "numberPokedex"],
+props:["n", "urlPokemon", "numberPokedex"],
 mounted() {
   console.log(this.urlPokemon)
 },
