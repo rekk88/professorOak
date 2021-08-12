@@ -14,7 +14,7 @@
     <div class="card-body">
       <h5 class="card-title">
         <!-- pokemon id and name here -->
-        <span class="pokemon_number">#20</span> <span class="pokemon_name">{{n}}{{urlPokemon}}</span>
+        <span class="pokemon_number">#20</span> <span class="pokemon_name">{{n}}</span>
       </h5>
       
       <!-- type here -->
@@ -36,6 +36,11 @@
 export default {
  name: 'Card',
  components:{},
+ data() {
+   return {
+     test : this.n,
+   }
+ },
 //  props:{
 //    nome : String,
 //    urlPokemon : String
