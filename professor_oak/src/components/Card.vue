@@ -14,11 +14,9 @@
     <div class="card-body">
       <h5 class="card-title">
         <!-- pokemon id and name here -->
-<<<<<<< HEAD
-        <span class="pokemon_number">#20</span> <span class="pokemon_name">{{n}}</span>
-=======
+
+        <!-- <span class="pokemon_number">#20</span> <span class="pokemon_name">{{n}}</span> -->
         <span class="pokemon_number">{{numberPokedex}}</span> <span class="pokemon_name"> <a :href="urlPokemon">{{n}}</a></span>
->>>>>>> 252a4259860bb4d9e9d913b4ff29805f0fb839d7
       </h5>
       
       <!-- type here -->
