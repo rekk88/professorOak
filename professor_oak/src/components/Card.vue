@@ -14,7 +14,7 @@
     <div class="card-body">
       <h5 class="card-title">
         <!-- pokemon id and name here -->
-        <span class="pokemon_number">#20</span> <span class="pokemon_name">{{n}}{{urlPokemon}}</span>
+        <span class="pokemon_number">#20</span> <span class="pokemon_name"> <a :href="urlPokemon">{{n}}</a> </span>
       </h5>
       
       <!-- type here -->
