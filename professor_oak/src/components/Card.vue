@@ -14,7 +14,7 @@
     <div class="card-body">
       <h5 class="card-title">
         <!-- pokemon id and name here -->
-        <span class="pokemon_number">#20</span> <span class="pokemon_name">Fox</span>
+        <span class="pokemon_number">#20</span> <span class="pokemon_name">{{n}}{{urlPokemon}}</span>
       </h5>
       
       <!-- type here -->
@@ -35,6 +35,15 @@
 <script>
 export default {
  name: 'Card',
+ components:{},
+//  props:{
+//    nome : String,
+//    urlPokemon : String
+//  }
+props:["n","urlPokemon"],
+mounted() {
+  console.log(this.urlPokemon)
+},
 }
 </script>
 

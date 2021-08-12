@@ -21,8 +21,10 @@
       <div class="container d-flex justify-content-center align-items-start col-10 py-3 overflow scrollbar">
        
         <div class="row row-cols-3">
-          <div class="col card_wrap"> <Card /> </div>
-          <div class="col card_wrap"> <Card /> </div>
+          <div class="col card_wrap" v-for="(index,item) in list" :key="index"> 
+            <Card :n="item.name" :urlPokemon="item.url"/> 
+          </div>
+          <!-- <div class="col card_wrap"> <Card /> </div>
           <div class="col card_wrap"> <Card /> </div>
 
           <div class="col card_wrap"> <Card /> </div>
@@ -32,7 +34,7 @@
 
           <div class="col card_wrap"> <Card /> </div>
           <div class="col card_wrap"> <Card /> </div>
-          <div class="col card_wrap"> <Card /> </div>
+          <div class="col card_wrap"> <Card /> </div> -->
         </div>
         
       </div>
@@ -58,16 +60,18 @@ export default {
       Card,
       Sidebar
     },
-    props:["list", "type"], //prop in arrivo da App (con il risultato della chiamata axios)
+    //prop in arrivo da App (con il risultato della chiamata axios)
+    props:["list", "type"], //list : lista pokemon ; type : lista tipi 
 
     data() {
       return {
-        list2 : this.list,
-        type2: this.type        
+        // list2 : this.list, 
+        type2: this.type,
+        gallery : this.list        
       }
     },
     mounted() {
-      console.log(this.list2);
+      console.log(this.list);
     },
 }
 </script>

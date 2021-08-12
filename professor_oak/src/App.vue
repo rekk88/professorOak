@@ -32,12 +32,13 @@ export default {
   created() {
     console.log("created");
     console.log("pokemon : " , this.url);
-    this.pokemonGetter();
+    this.pokemonGetter(); //axios call per lista pokemon e lista tipi
   },
   methods: {
       pokemonGetter(){
+        // lista pokemon
         axios
-          .get(this.url + 'pokemon?limit=898')
+          .get(this.url + 'pokemon?limit=20')
           .then(response =>{
             console.log(response.data.results); //object {name , url}
             this.pokemon = response.data.results; //lista di tutti i pokemon
@@ -45,9 +46,9 @@ export default {
             console.log("pokemon list : " , this.pokemon);
           })
 
-          // Type
-
-         axios 
+          
+        // Type
+        axios 
           .get(this.url + 'type')
           .then(response => {
             this.types = response.data.results;
