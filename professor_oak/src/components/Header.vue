@@ -60,9 +60,9 @@ export default {
   props:["tipi"],
   
   data() {
-  return {
-    t : this.types,  
-  }
+  // return {
+  //   t : this.types,  
+  // }
 }
 
  

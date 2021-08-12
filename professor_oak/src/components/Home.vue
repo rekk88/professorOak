@@ -21,7 +21,7 @@
       <div class="container d-flex justify-content-center align-items-start col-10 py-3 overflow scrollbar">
        
         <div class="row row-cols-3">
-          <div class="col card_wrap" v-for="(index,item) in list" :key="index"> 
+          <div class="col card_wrap" v-for="(item, index) in list" :key="index"> 
             <Card :n="item.name" :urlPokemon="item.url"/> 
           </div>
           <!-- <div class="col card_wrap"> <Card /> </div>
