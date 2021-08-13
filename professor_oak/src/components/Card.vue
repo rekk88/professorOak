@@ -6,7 +6,7 @@
       </div>
       <div class="flip_back rounded-circle">
         <!-- back text -->
-        <img src="../assets/images/5.png" class="card-img-top rounded-circle" alt="back image">
+        <img :src="official_artwork" class="card-img-top rounded-circle" alt="back image">
         <div class="card_back_text">some back text , some more text</div>
       </div>
     </div>
@@ -42,6 +42,7 @@ export default {
    return {
      test : this.n,
      sprite : "",
+     official_artwork : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+this.numberPokedex+".png",
    }
  },
 //  props:{
@@ -54,7 +55,8 @@ mounted() {
   axios
     .get(this.urlPokemon)
     .then(response =>{
-      console.log(response.data.sprites.front_default);
+      // console.log(response.data.sprites.other.official-artwork);
+      console.log(this.official_artwork);
       this.sprite = response.data.sprites.front_default;
 
     })
