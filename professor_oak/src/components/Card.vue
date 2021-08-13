@@ -21,7 +21,7 @@
       <!-- type here -->
       <h6 class="d-flex">
         <!-- first -->
-        <span class="pokemon_type flying me-1">{{type1.name}}</span> 
+        <span class="pokemon_type me-1" :class="type1.name">{{type1.name}}</span> 
         <!-- second -->
         <span class=" pokemon_type dragon ms-1">Dragon</span>
       </h6>
