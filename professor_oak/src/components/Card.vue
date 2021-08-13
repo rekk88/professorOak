@@ -65,7 +65,7 @@ mounted() {
 
   //   })
   axios.all([
-    axios.get(this.urlPokemon), //chiamata per sprite del singolo pokemon
+    axios.get(this.urlPokemon), //chiamata per sprite e tipo del singolo pokemon
     axios.get(this.descriptionUrl) //chiamata per la descrizione del pokemon
   ])
   .then(axios.spread((obj1, obj2)=>{
