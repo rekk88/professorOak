@@ -7,7 +7,7 @@
       <div class="flip_back rounded-circle">
         <!-- back text -->
         <img :src="official_artwork" class="card-img-top rounded-circle" alt="back image">
-        <div class="card_back_text">some back text , some more text</div>
+        <div class="card_back_text">{{descriptionText}}</div>
       </div>
     </div>
     
@@ -42,7 +42,9 @@ export default {
    return {
      test : this.n,
      sprite : "",
+     descriptionText:"",
      official_artwork : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+this.numberPokedex+".png",
+     descriptionUrl : "https://pokeapi.co/api/v2/pokemon-species/"+this.numberPokedex+"/"
    }
  },
 //  props:{
@@ -52,14 +54,25 @@ export default {
 props:["n", "urlPokemon", "numberPokedex"],
 mounted() {
   console.log(this.urlPokemon)
-  axios
-    .get(this.urlPokemon)
-    .then(response =>{
-      // console.log(response.data.sprites.other.official-artwork);
-      console.log(this.official_artwork);
-      this.sprite = response.data.sprites.front_default;
+  // axios
+  //   .get(this.urlPokemon)
+  //   .then(response =>{
+  //     // console.log(response.data.sprites.other.official-artwork);
+  //     console.log(this.official_artwork);
+  //     this.sprite = response.data.sprites.front_default;
 
-    })
+  //   })
+  axios.all([
+    axios.get(this.urlPokemon), //chiamata per sprite del singolo pokemon
+    axios.get(this.descriptionUrl) //chiamata per la descrizione del pokemon
+  ])
+  .then(axios.spread((obj1, obj2)=>{
+    console.log("obj 1 : ",obj1.data.sprites.front_default);
+    //flavor_text_entries[x] x -> indica la versione del testo che andiamo a selezionare
+    console.log("obj 2 : ",obj2.data.flavor_text_entries[0].flavor_text);
+    this.sprite = obj1.data.sprites.front_default;
+    this.descriptionText = obj2.data.flavor_text_entries[0].flavor_text;
+  }));
 },
 }
 </script>
