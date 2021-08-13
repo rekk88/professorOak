@@ -15,7 +15,7 @@
       <h5 class="card-title">
         <!-- pokemon id and name here -->
         <!-- <span class="pokemon_number">#20</span> <span class="pokemon_name">{{n}}</span> -->
-        <span class="pokemon_number">#{{numberPokedex}}</span> <span class="pokemon_name text-capitalize"><a :href="urlPokemon" class="text-decoration-none">{{n}}</a></span>
+        <span class="pokemon_number" @click="refsRead">#{{numberPokedex}}</span> <span class="pokemon_name text-capitalize"><a :href="urlPokemon" class="text-decoration-none">{{n}}</a></span>
       </h5>
       
       <!-- type here -->
@@ -55,9 +55,15 @@ export default {
 //  }
 props:["n", "urlPokemon", "numberPokedex"],
 methods: {
-  test2(text){
-    console.log("sono il metodo test2!",text);
+  refsRead(){
+    console.log(this.$refs);
   },
+  test2: function(){
+    console.log("sono il metodo test2!");
+  },
+  // test2(text){
+  //   console.log("sono il metodo test2!",text);
+  // },
   img_type_Getter(){
     axios.all([
       axios.get(this.urlPokemon), //chiamata per sprite e tipo del singolo pokemon

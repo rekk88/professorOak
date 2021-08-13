@@ -34,7 +34,7 @@
        
         <div class="row row-cols-3">
           <div class="col card_wrap" v-for="(item, index) in list" :key="index"> 
-            <div> <!--v-if per la ricerca da header -->
+            <div @click="test4"> <!--v-if per la ricerca da header -->
               <Card :n="item.name" 
                     :urlPokemon="item.url" 
                     :numberPokedex="index+1"
@@ -70,10 +70,18 @@ export default {
     //prop in arrivo da App (con il risultato della chiamata axios)
     props:["list", "type"], //list : lista pokemon ; type : lista tipi 
     methods: {
+      test4(){
+         console.log(this.$refs.Card);
+      },
       page(vet){
         console.log("emit value : " , vet);
         this.$emit('clicked',vet); //vet -> emit -> interval
-        this.$refs.Card.test2("ciao");
+        // console.log(this.$refs.Card);
+        for(let i=vet[0] ; i < vet[1] ; i++){
+          console.log(this.$refs.Card[i]);
+          this.$refs.Card[i].test2();
+        }
+        // this.$refs.Card.test2();
       }
     },
     data() {
