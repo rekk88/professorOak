@@ -21,7 +21,7 @@
       <!-- type here -->
       <h6 class="d-flex">
         <!-- first -->
-        <span class="pokemon_type flying me-1">Flying</span> 
+        <span class="pokemon_type flying me-1">{{type1.name}}</span> 
         <!-- second -->
         <span class=" pokemon_type dragon ms-1">Dragon</span>
       </h6>
@@ -43,6 +43,7 @@ export default {
      test : this.n,
      sprite : "",
      official_artwork : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+this.numberPokedex+".png",
+     type1: "",
    }
  },
 //  props:{
@@ -58,7 +59,7 @@ mounted() {
       // console.log(response.data.sprites.other.official-artwork);
       console.log(this.official_artwork);
       this.sprite = response.data.sprites.front_default;
-
+      this.type1 = response.data.types[0].type;
     })
 },
 }
