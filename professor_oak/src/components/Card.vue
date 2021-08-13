@@ -54,8 +54,34 @@ export default {
 //    urlPokemon : String
 //  }
 props:["n", "urlPokemon", "numberPokedex"],
+methods: {
+  test2(text){
+    console.log("sono il metodo test2!",text);
+  },
+  img_type_Getter(){
+    axios.all([
+      axios.get(this.urlPokemon), //chiamata per sprite e tipo del singolo pokemon
+      axios.get(this.descriptionUrl) //chiamata per la descrizione del pokemon
+    ])
+  .then(axios.spread((obj1, obj2)=>{
+    console.log("obj 1 : ",obj1.data.sprites.front_default);
+    //flavor_text_entries[x] x -> indica la versione del testo che andiamo a selezionare
+    console.log("obj 2 : ",obj2.data.flavor_text_entries[0].flavor_text);
+    this.sprite = obj1.data.sprites.front_default;
+    this.descriptionText = obj2.data.flavor_text_entries[0].flavor_text;
+
+    // type 
+    this.type1 = obj1.data.types[0].type;
+      if (obj1.data.types.length == 2) {
+        this.type2 = obj1.data.types[1].type;
+      }
+      else this.type2 = '';
+  }));
+  }
+},
 mounted() {
-  console.log(this.urlPokemon)
+  console.log(this.urlPokemon),
+  this.img_type_Getter()
   // axios
   //   .get(this.urlPokemon)
   //   .then(response =>{
@@ -64,24 +90,10 @@ mounted() {
   //     this.sprite = response.data.sprites.front_default;
 
   //   })
-  axios.all([
-    axios.get(this.urlPokemon), //chiamata per sprite e tipo del singolo pokemon
-    axios.get(this.descriptionUrl) //chiamata per la descrizione del pokemon
-  ])
-  .then(axios.spread((obj1, obj2)=>{
-    console.log("obj 1 : ",obj1.data.sprites.front_default);
-    //flavor_text_entries[x] x -> indica la versione del testo che andiamo a selezionare
-    console.log("obj 2 : ",obj2.data.flavor_text_entries[0].flavor_text);
-    this.sprite = obj1.data.sprites.front_default;
-    this.descriptionText = obj2.data.flavor_text_entries[0].flavor_text;
-
-    // type
-    this.type1 = obj1.data.types[0].type;
-      if (obj1.data.types.length == 2) {
-        this.type2 = obj1.data.types[1].type;
-      }
-      else this.type2 = '';
-  }));
+  
+},
+updated() {
+  // this.img_type_Getter();
 },
 }
 </script>

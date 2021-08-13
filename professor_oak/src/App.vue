@@ -3,6 +3,7 @@
     <Home 
     :list="pokemon"
     :type="types"
+    @clicked="pokemonGetter"
   />
   </div>
 </template>
@@ -32,21 +33,26 @@ export default {
   created() {
     console.log("created");
     console.log("pokemon : " , this.url);
-    this.pokemonGetter(); //axios call per lista pokemon e lista tipi
+    this.pokemonGetter([0,20]); //axios call per lista pokemon
+    this.typeGetter(); //axio call per lista tipi
   },
   methods: {
-      pokemonGetter(){
+      test(value){
+        console.log("emit test function",value);
+      },
+      pokemonGetter(interval){
         // lista pokemon
+        
         axios
-          .get(this.url + 'pokemon?limit=20')
+          .get(this.url + 'pokemon?limit='+interval[1]+'&offset='+interval[0])
           .then(response =>{
             console.log(response.data.results); //object {name , url}
             this.pokemon = response.data.results; //lista di tutti i pokemon
            
             console.log("pokemon list : " , this.pokemon);
           })
-
-          
+      },
+      typeGetter(){
         // Type
         axios 
           .get(this.url + 'type')

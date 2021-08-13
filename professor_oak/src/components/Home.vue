@@ -10,6 +10,17 @@
       </div>
         
       <!-- test blurr -->
+      <div class="container text-center">
+         <div class="row row-cols-1">
+          <div class="col" @click="page([0,20])">
+            0-20
+          </div>
+          <div class="col" @click="page([20,40])">
+            20-40
+          </div>
+        </div>
+      </div>
+      
       <div class="main_content_wrap container d-flex p-0 rounded">
          <div class="col">
             <div class="h_100">
@@ -18,6 +29,7 @@
               </div>
             </div>
         </div>
+        
       <div class="container d-flex justify-content-center align-items-start col-10 py-3 overflow scrollbar">
        
         <div class="row row-cols-3">
@@ -25,7 +37,8 @@
             <div> <!--v-if per la ricerca da header -->
               <Card :n="item.name" 
                     :urlPokemon="item.url" 
-                    :numberPokedex="index+1" 
+                    :numberPokedex="index+1"
+                    ref="Card"
               /> 
             </div>
           </div>
@@ -56,12 +69,18 @@ export default {
     },
     //prop in arrivo da App (con il risultato della chiamata axios)
     props:["list", "type"], //list : lista pokemon ; type : lista tipi 
-
+    methods: {
+      page(vet){
+        console.log("emit value : " , vet);
+        this.$emit('clicked',vet); //vet -> emit -> interval
+        this.$refs.Card.test2("ciao");
+      }
+    },
     data() {
       return {
         // list2 : this.list, 
         type2: this.type,
-        gallery : this.list        
+        gallery : this.list,
       }
     },
     mounted() {
