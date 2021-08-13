@@ -22,22 +22,13 @@
        
         <div class="row row-cols-3">
           <div class="col card_wrap" v-for="(item, index) in list" :key="index"> 
-            <Card :n="item.name" 
-                  :urlPokemon="item.url" 
-                  :numberPokedex="index+1" 
-            /> 
+            <div> <!--v-if per la ricerca da header -->
+              <Card :n="item.name" 
+                    :urlPokemon="item.url" 
+                    :numberPokedex="index+1" 
+              /> 
+            </div>
           </div>
-          <!-- <div class="col card_wrap"> <Card /> </div>
-          <div class="col card_wrap"> <Card /> </div>
-
-          <div class="col card_wrap"> <Card /> </div>
-          <div class="col card_wrap"> <Card /> </div>
-          <div class="col card_wrap"> <Card /> </div>
-          
-
-          <div class="col card_wrap"> <Card /> </div>
-          <div class="col card_wrap"> <Card /> </div>
-          <div class="col card_wrap"> <Card /> </div> -->
         </div>
         
       </div>

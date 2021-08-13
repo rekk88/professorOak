@@ -2,7 +2,7 @@
   <div class="card poke_card flip_card container border-0" style="width: 18rem;">
     <div class="flip_inner">
       <div class="flip_front">
-        <img src="../assets/images/38.png" class="card-img-top rounded-circle" alt="sprite">
+        <img :src="sprite" class="card-img-top rounded-circle" alt="sprite">
       </div>
       <div class="flip_back rounded-circle">
         <!-- back text -->
@@ -14,7 +14,6 @@
     <div class="card-body">
       <h5 class="card-title">
         <!-- pokemon id and name here -->
-
         <!-- <span class="pokemon_number">#20</span> <span class="pokemon_name">{{n}}</span> -->
         <span class="pokemon_number">#{{numberPokedex}}</span> <span class="pokemon_name text-capitalize"><a :href="urlPokemon" class="text-decoration-none">{{n}}</a></span>
       </h5>
@@ -35,12 +34,14 @@
 
 
 <script>
+import axios from 'axios'
 export default {
  name: 'Card',
  components:{},
  data() {
    return {
      test : this.n,
+     sprite : "",
    }
  },
 //  props:{
@@ -50,6 +51,13 @@ export default {
 props:["n", "urlPokemon", "numberPokedex"],
 mounted() {
   console.log(this.urlPokemon)
+  axios
+    .get(this.urlPokemon)
+    .then(response =>{
+      console.log(response.data.sprites.front_default);
+      this.sprite = response.data.sprites.front_default;
+
+    })
 },
 }
 </script>

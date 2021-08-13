@@ -7,7 +7,6 @@
       <li class="pokemon_list_item ps-2" v-for="(item,i) in lista" :key="i">
         <span v-if="item.name.includes(ricerca)">
           <span class="pokemon_list_number">#{{i+1}} </span><span @click="visualizza(item.url)"><a href="#" class="pokemon_list_name">{{item.name}}</a></span>
-
         </span>
       </li>
     </ul>
