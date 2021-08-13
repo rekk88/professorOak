@@ -44,7 +44,8 @@ export default {
      sprite : "",
      descriptionText:"",
      official_artwork : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+this.numberPokedex+".png",
-     descriptionUrl : "https://pokeapi.co/api/v2/pokemon-species/"+this.numberPokedex+"/"
+     descriptionUrl : "https://pokeapi.co/api/v2/pokemon-species/"+this.numberPokedex+"/",
+     type1: "",
    }
  },
 //  props:{
@@ -72,6 +73,7 @@ mounted() {
     console.log("obj 2 : ",obj2.data.flavor_text_entries[0].flavor_text);
     this.sprite = obj1.data.sprites.front_default;
     this.descriptionText = obj2.data.flavor_text_entries[0].flavor_text;
+    this.type1 = obj1.data.types[0].type;
   }));
 },
 }
