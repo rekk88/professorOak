@@ -40,6 +40,8 @@
             </span>
           </div>
         </nav>
+        <!-- pesco 20 pokemon a caso -->
+        <span v-for="(item, index) in pokemonListRandom" :key="index">{{item.name}} </span>
       </div>
     </div>
   </div>
@@ -49,7 +51,7 @@
 <script>
 
 
-
+import axios from 'axios'
 export default {
   name:'Header',
 
@@ -60,12 +62,33 @@ export default {
   props:["tipi"],
   
   data() {
-  // return {
-  //   t : this.types,  
-  // }
-}
+    return {
+    url: 'https://pokeapi.co/api/v2/',
+    randomNumber: [],
+    pokemonListRandom: [],
 
- 
+  }
+},
+
+ created() {
+  this.pokemonRandomGet();
+},
+
+  methods: {
+    pokemonRandomGet() { // Pesco 20 pokemon casuali
+      axios
+        .get(this.url + 'pokemon?limit=898') 
+
+        .then(response => {
+          for (var i = 0; i < 20; i++) {
+            this.randomNumber = Math.floor(Math.random() * (898 - 0 + 1) + 0); // genero un numero casuale che farà da indice per pescare il poke
+            console.log(this.randomNumber);
+            this.pokemonListRandom.push(response.data.results[this.randomNumber - 1]); // pusho il poke nell'array (-1 per il numero di pokedex)
+            console.log(this.pokemonListRandom);
+          }
+        })
+    }
+  }
 }
 </script>
 
