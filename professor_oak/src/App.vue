@@ -2,6 +2,7 @@
   <div id="app">
     <Home 
     :list="pokemon"
+    :listPokedexNumber="pokedexN"
     :type="types"
     @clicked="pokemonGetter"
   />
@@ -26,7 +27,8 @@ export default {
       url : 'https://pokeapi.co/api/v2/',
       // pokemonList : pokemon + 'pokemon?limit=898',
       pokemon : [],
-      names : [],
+      pokedexN : [], 
+      // names : [],
       types: [],
     }
   },
@@ -42,14 +44,24 @@ export default {
       },
       pokemonGetter(interval){
         // lista pokemon
-        
+        this.pokemon = ""; //i shit you not this was an entire afternoon of trial and error arasgjsdkjfsndkfjsnfkdjsnkjsnfkfjn
         axios
           .get(this.url + 'pokemon?limit='+interval[1]+'&offset='+interval[0])
           .then(response =>{
             console.log(response.data.results); //object {name , url}
             this.pokemon = response.data.results; //lista di tutti i pokemon
+
+
+            for(let i=0 ; i< this.pokemon.length ; i++){
+                 axios
+                  .get(this.pokemon[i].url)
+                  .then(answer =>{
+                    this.pokedexN[i]=answer.data.id;
+                  })
+            }
            
             console.log("pokemon list : " , this.pokemon);
+            console.log("pokedex numbers : ",this.pokedexN);
           })
       },
       typeGetter(){
