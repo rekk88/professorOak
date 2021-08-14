@@ -71,19 +71,18 @@ methods: {
     this.descriptionUrl="https://pokeapi.co/api/v2/pokemon-species/"+this.numberPokedex+"/",
     // official_artwork : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+this.numberPokedex+".png",
     //  descriptionUrl : "https://pokeapi.co/api/v2/pokemon-species/"+this.numberPokedex+"/",
+
+
     axios.all([
       axios.get(this.urlPokemon), //chiamata per sprite e tipo del singolo pokemon
       axios.get(this.descriptionUrl) //chiamata per la descrizione del pokemon
     ])
-  .then(axios.spread((obj1, obj2)=>{
+    .then(axios.spread((obj1, obj2)=>{
     console.log("obj 1 : ",obj1.data.sprites.front_default);
-    //flavor_text_entries[x] x -> indica la versione del testo che andiamo a selezionare
-    // console.log("obj 2 : ",obj2.data.flavor_text_entries[0].flavor_text);
+   
     this.sprite = obj1.data.sprites.front_default;
     this.descriptionText = obj2.data.flavor_text_entries[0].flavor_text;
-    // console.log("log  number pokedex updated: ",obj1.data.id);
-    // this.numberPokedex = obj1.data.id;
-    // type 
+   
     this.type1 = obj1.data.types[0].type;
       if (obj1.data.types.length == 2) {
         this.type2 = obj1.data.types[1].type;
