@@ -14,7 +14,6 @@
     <div class="card-body">
       <h5 class="card-title">
         <!-- pokemon id and name here -->
-        <!-- <span class="pokemon_number">#20</span> <span class="pokemon_name">{{n}}</span> -->
         <span class="pokemon_number" @click="refsRead">#{{numberPokedex}}</span> <span class="pokemon_name text-capitalize"><a :href="urlPokemon" class="text-decoration-none">{{n}}</a></span>
       </h5>
       
@@ -43,16 +42,13 @@ export default {
      test : this.n,
      sprite : "",
      descriptionText:"",
-    official_artwork : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+this.numberPokedex+".png",
+     official_artwork : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+this.numberPokedex+".png",
      descriptionUrl : "https://pokeapi.co/api/v2/pokemon-species/"+this.numberPokedex+"/",
      type1: "",
      type2: "",
    }
  },
-//  props:{
-//    nome : String,
-//    urlPokemon : String
-//  }
+
 props:["n", "urlPokemon", "numberPokedex"],
 methods: {
   refsRead(){
@@ -61,16 +57,12 @@ methods: {
   test2: function(){
     console.log("sono il metodo test2!");
   },
-  // test2(text){
-  //   console.log("sono il metodo test2!",text);
-  // },
+ 
   img_type_Getter(){
     this.sprite="";
     this.descriptionText="";
     this.official_artwork = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+this.numberPokedex+".png",
     this.descriptionUrl="https://pokeapi.co/api/v2/pokemon-species/"+this.numberPokedex+"/",
-    // official_artwork : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+this.numberPokedex+".png",
-    //  descriptionUrl : "https://pokeapi.co/api/v2/pokemon-species/"+this.numberPokedex+"/",
 
 
     axios.all([
@@ -94,19 +86,8 @@ methods: {
 mounted() {
   console.log(this.urlPokemon),
   this.img_type_Getter()
-  // axios
-  //   .get(this.urlPokemon)
-  //   .then(response =>{
-  //     // console.log(response.data.sprites.other.official-artwork);
-  //     console.log(this.official_artwork);
-  //     this.sprite = response.data.sprites.front_default;
-  //   })
-  
 },
-updated() {
-this.official_artwork = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+this.numberPokedex+".png";
-this.descriptionUrl="https://pokeapi.co/api/v2/pokemon-species/"+this.numberPokedex+"/";
-},
+
 }
 </script>
 

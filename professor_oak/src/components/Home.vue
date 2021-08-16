@@ -34,10 +34,10 @@
        
         <div class="row row-cols-3">
           <div class="col card_wrap" v-for="(item, index) in list" :key="index"> 
-            <div @click="test4"> <!--v-if per la ricerca da header -->
+            <div> <!--v-if per la ricerca da header -->
               <Card :n="item.name" 
                     :urlPokemon="item.url" 
-                    :numberPokedex="listPokedexNumber[index]"
+                    :numberPokedex="index + indice"
                     ref="Card"
 
               /> 
@@ -69,39 +69,23 @@ export default {
       Sidebar
     },
     //prop in arrivo da App (con il risultato della chiamata axios)
-    props:["list", "type","listPokedexNumber"], //list : lista pokemon ; type : lista tipi 
+    props:["list", "type","indice"], //list : lista pokemon ; type : lista tipi 
     data() {
       return {
-        // list2 : this.list, 
-        type2: this.type,
-        // gallery : this.list,
+   
       }
     },
     methods: {
-      test4(){
-        //  console.log(this.$refs.Card);
-        // console.log(this.list[0].url);
-        // console.log(this.list[0].url.slice(34,35));
-        console.log(this.list.length);
-        for(let i=0 ; i < this.list.length ; i++){
-        console.log("estratto numero pokedex",this.list[i].url.slice(34,35));
-        }
-      },
       page(vet){
         console.log("emit value : " , vet);
         this.$emit('clicked',vet); //vet -> emit -> interval
-        // console.log(this.$refs.Card);
         for(let i=vet[0] ; i < vet[1] ; i++){
-          // console.log(this.$refs.Card[i]);
           this.$refs.Card[i].img_type_Getter();
         }
-        // this.$refs.Card.test2();
-        // this.$refs.Card[i].img_type_Getter();
-
       }
     },
    
-    mounted() {
+    created() {
       console.log(this.list);
       
     },
