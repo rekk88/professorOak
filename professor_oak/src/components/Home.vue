@@ -15,7 +15,7 @@
           <div class="col" @click="page([0,20])">
             0-20
           </div>
-          <div class="col" @click="page([20,40])">
+          <div class="col" @click="page([20,20])">
             20-40
           </div>
         </div>
@@ -79,14 +79,15 @@ export default {
       page(vet){
         console.log("emit value : " , vet);
         this.$emit('clicked',vet); //vet -> emit -> interval
-        for(let i=vet[0] ; i < vet[1] ; i++){
+        for(let i=vet[0] ; i <= vet[1] ; i++){
+          console.log("indice i di vet : ", i);
           this.$refs.Card[i].img_type_Getter();
         }
       }
     },
    
     created() {
-      console.log(this.list);
+      // console.log(this.list);
       
     },
 }

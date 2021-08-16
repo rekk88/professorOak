@@ -70,7 +70,7 @@ methods: {
       axios.get(this.descriptionUrl) //chiamata per la descrizione del pokemon
     ])
     .then(axios.spread((obj1, obj2)=>{
-    console.log("obj 1 : ",obj1.data.sprites.front_default);
+    // console.log("obj 1 : ",obj1.data.sprites.front_default);
    
     this.sprite = obj1.data.sprites.front_default;
     this.descriptionText = obj2.data.flavor_text_entries[0].flavor_text;
@@ -84,7 +84,7 @@ methods: {
   }
 },
 mounted() {
-  console.log(this.urlPokemon),
+  // console.log(this.urlPokemon),
   this.img_type_Getter()
 },
 
