@@ -44,7 +44,7 @@
 
     <div class="text-center p-1">
       <div v-if="pokeSprite != ''" class="pokeFortunato my_nav p-0 m-0">
-        <span class="navbar-text tag_line m-0 p-0">Sconfiggi la Lega solamente con: </span>
+        <span class="navbar-text tag_line m-0 p-0">Affronta la Lega solamente con: </span>
         <span v-for="(item, index) in pokemonListRandom" :key="index" class="text-capitalize m-0 p-0">
           <a :href="item.url" class="navbar-text text-decoration-none tag_line m-0 p-0">{{item.name}}</a>
         </span>
