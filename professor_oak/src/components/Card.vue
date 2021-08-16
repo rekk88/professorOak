@@ -18,11 +18,11 @@
       </h5>
       
       <!-- type here -->
-      <h6 class="d-flex">
+      <h6 class="text-center">
         <!-- first -->
-        <span class="pokemon_type me-1" :class="type1.name">{{type1.name}}</span> 
+        <span :class="type1.name">{{type1.name}}</span> 
         <!-- second -->
-        <span class=" pokemon_type ms-1" :class="type2.name">{{type2.name}}</span>
+        <span :class="type2.name">{{type2.name}}</span>
       </h6>
 
       <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

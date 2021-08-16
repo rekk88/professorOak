@@ -1,14 +1,23 @@
-.pokemon_type {
+.fire, .grass,
+.poison, .water,
+.flying, .bug,
+.normal, .electric,
+.ground, .fairy,
+.fighting, .psychic
+.rock, .steel,
+.ice, .ghost,
+.dragon, .dark {
   width: 35%;
   max-width: 110px;
 
-  font-size: 13px;
+  font-size: .8rem;
   line-height: 18px;
   text-transform: none;
   text-align: center;
 
   border-radius: 3px;
-  margin: 0 auto;
+  margin: 0 5px;
+  padding: 0 13px;
 }
 
 .fire {

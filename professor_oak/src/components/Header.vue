@@ -85,8 +85,7 @@ export default {
     this.randomNumber = Math.floor(Math.random() * (898 - 0 + 1) + 0);
 
       axios
-        .get(this.url + 'pokemon?limit=898')
-        
+        .get(this.url + 'pokemon?limit=898') 
         .then(response => {
           this.pokemonListRandom = []
           this.pokemonListRandom.push(response.data.results[this.randomNumber -1]);
