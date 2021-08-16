@@ -11,18 +11,16 @@
         
       <!-- test blurr -->
       <div class="container text-center">
-         <div class="row">
-          <div class="col d-inline" v-for="(button,index) in buttons" :key="index">
-            <div class="d-inline" v-if="index < 44"> 
-              <div  @click="page(button)">
+         <div class="button_container">
+          <div class="d-inline-block" v-for="(button,index) in buttons" :key="index">
+            <div v-if="index < 44"> 
+              <div class="test_button"  @click="page(button)">
                {{button}}-{{button + 20}}
 
               </div>
             </div>
           </div>
-          <div class="col" @click="page(20)">
-            20-40
-          </div>
+        
         </div>
       </div>
       
@@ -102,6 +100,23 @@ export default {
 
 
 <style lang="scss" scoped>
+.button_container{
+  overflow-x: scroll;
+  display: flex;
+}
+.button_container::-webkit-scrollbar{
+  background-color: red;
+  color: red;
+}
+.button_container::-webkit-scrollbar-thumb{
+  color: red;
+  background: red;
+  border-radius: 10px !important;
+}
+
+.test_button{
+  padding: 0px 5px;
+}
 .home_wrap {
   height: 100vh;
   background-image: url('../assets/images/home_bg2.jpg');
