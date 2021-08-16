@@ -12,7 +12,7 @@
       <!-- test blurr -->
       <div class="container text-center">
          <div class="row">
-          <div class="col d-inline" v-for="(button,index) in buttons" :key="index" @click="page([0,20])">
+          <div class="col d-inline" v-for="(button,index) in buttons" :key="index">
             <div class="d-inline" v-if="index < 44"> 
               <div  @click="page(button)">
                {{button}}-{{button + 20}}
