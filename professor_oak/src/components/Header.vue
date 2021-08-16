@@ -34,14 +34,16 @@
           <div class="container-fluid">
             <span class="navbar-text tag_line">Gotta catch 'em all!</span>
 
-            <span class="btn btn-outline-success">
+            <span class="btn btn-outline-success" @click="pokemonRandomGet()">
               <i class="bi bi-arrow-repeat me-2"></i>
               Surprise me
-            </span>
+            </span>      
           </div>
         </nav>
         <!-- pesco 20 pokemon a caso -->
         <span v-for="(item, index) in pokemonListRandom" :key="index">{{item.name}} </span>
+
+       
       </div>
     </div>
   </div>
@@ -59,19 +61,20 @@ export default {
     
   },
 
-  props:["tipi"],
+  props:["tipi", "lista"],
   
   data() {
     return {
     url: 'https://pokeapi.co/api/v2/',
     randomNumber: [],
     pokemonListRandom: [],
+  
 
   }
 },
 
  created() {
-  this.pokemonRandomGet();
+  // this.pokemonRandomGet();
 },
 
   methods: {
@@ -80,6 +83,8 @@ export default {
         .get(this.url + 'pokemon?limit=898') 
 
         .then(response => {
+          this.pokemonListRandom = []
+
           for (var i = 0; i < 20; i++) {
             this.randomNumber = Math.floor(Math.random() * (898 - 0 + 1) + 0); // genero un numero casuale che farà da indice per pescare il poke
             console.log(this.randomNumber);
