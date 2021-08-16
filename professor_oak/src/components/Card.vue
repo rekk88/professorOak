@@ -120,6 +120,6 @@ mounted() {
     }
   }
 
-  padding: 0px 44px;
+  padding: 0px 55px;
 }
 </style>

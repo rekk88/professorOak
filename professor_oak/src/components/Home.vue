@@ -126,10 +126,10 @@ export default {
   .home_content{
     height: 100%;
     .header_wrap{
-      height: 30%;
+      height: 35%;
     }
     .main_content_wrap{
-      height: 65%;
+      height: 60%;
       box-shadow: -1px 1px 5px 9px var(--ultra-transparent-grey);
       .card_wrap{
         height: max-content;

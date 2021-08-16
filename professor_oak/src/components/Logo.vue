@@ -15,10 +15,10 @@ export default {
 
 <style lang="scss" scoped>
 img:first-child {
-  height: 70px;
+  height: 50px;
 }
 
 img:nth-child(2) {
-  width: 200px;
+  width: 180px;
 }
 </style>

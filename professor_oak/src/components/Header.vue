@@ -1,7 +1,7 @@
 <template>
   <div class="container p-1">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg">
         <nav class="my_nav navbar">
           <div class="container-fluid">
             <form class="d-flex">
@@ -25,25 +25,30 @@
                 </li> 
               </ul>
             </li>
+
+            <span class="navbar-text tag_line">Gotta catch 'em all!</span>
+
+
+            <button 
+              class="btn btn-outline-success" 
+              role="button" 
+              aria-expanded="false" 
+              @click="pokemonRandomGet()">
+                <i class="bi bi-arrow-repeat me-2"></i>
+                  Surprise me
+            </button>
           </div>
         </nav>
       </div>
+    </div>
 
-      <div class="col-lg-6">
-        <nav class="my_nav navbar navbar-nav navbar-collapse">
-          <div class="container-fluid">
-            <span class="navbar-text tag_line">Gotta catch 'em all!</span>
-
-            <span class="btn btn-outline-success" @click="pokemonRandomGet()">
-              <i class="bi bi-arrow-repeat me-2"></i>
-              Surprise me
-            </span>      
-          </div>
-        </nav>
-        <!-- pesco 20 pokemon a caso -->
-        <span v-for="(item, index) in pokemonListRandom" :key="index">{{item.name}} </span>
-
-       
+    <div class="text-center p-1">
+      <div v-if="pokeSprite != ''" class="pokeFortunato my_nav p-0 m-0">
+        <span class="navbar-text tag_line m-0 p-0">Sconfiggi la Lega solamente con: </span>
+        <span v-for="(item, index) in pokemonListRandom" :key="index" class="text-capitalize m-0 p-0">
+          <a :href="item.url" class="navbar-text text-decoration-none tag_line m-0 p-0">{{item.name}}</a>
+        </span>
+        <img :src="pokeSprite" alt="pokemon-fortunato" class="ms-0">
       </div>
     </div>
   </div>
@@ -68,8 +73,7 @@ export default {
     url: 'https://pokeapi.co/api/v2/',
     randomNumber: [],
     pokemonListRandom: [],
-  
-
+    pokeSprite:'',
   }
 },
 
@@ -78,19 +82,27 @@ export default {
 },
 
   methods: {
+    
     pokemonRandomGet() { // Pesco 20 pokemon casuali
-      axios
-        .get(this.url + 'pokemon?limit=898') 
+    this.randomNumber = Math.floor(Math.random() * (898 - 0 + 1) + 0);
 
+      axios
+        .get(this.url + 'pokemon?limit=898')
+        
         .then(response => {
           this.pokemonListRandom = []
+          console.log(this.randomNumber);
+          this.pokemonListRandom.push(response.data.results[this.randomNumber -1]);
+          console.log(this.pokemonListRandom);
 
-          for (var i = 0; i < 20; i++) {
-            this.randomNumber = Math.floor(Math.random() * (898 - 0 + 1) + 0); // genero un numero casuale che farà da indice per pescare il poke
-            console.log(this.randomNumber);
-            this.pokemonListRandom.push(response.data.results[this.randomNumber - 1]); // pusho il poke nell'array (-1 per il numero di pokedex)
-            console.log(this.pokemonListRandom);
-          }
+        })
+
+      axios
+        .get(this.url + 'pokemon' + '/' + this.randomNumber)
+        .then(response => {
+          console.log(this.url + 'pokemon' + '/' + this.randomNumber);
+          this.pokeSprite = response.data.sprites.front_default;
+          console.log('MIO lOG',this.pokeSprite);
         })
     }
   }
@@ -123,5 +135,14 @@ input:focus {
 
 .tag_line {
   color: var(--greenBulba);
+}
+
+img {
+  width: 85px;
+}
+
+.pokeFortunato {
+  width: 35%;
+  margin: 0 auto!important;
 }
 </style>
