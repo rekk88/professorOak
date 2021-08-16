@@ -25,7 +25,7 @@
          <div class="col">
             <div class="h_100">
               <div class="p-0 h_100">
-                <Sidebar :lista="list"/>
+                <Sidebar :lista="list" :n="indice"/>
               </div>
             </div>
         </div>

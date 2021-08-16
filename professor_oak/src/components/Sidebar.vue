@@ -6,7 +6,7 @@
     <ul class="pokemon_list ps-0 pt-2 overflow scrollbar">
       <li class="pokemon_list_item ps-2" v-for="(item,i) in lista" :key="i">
         <span v-if="item.name.includes(ricerca)">
-          <span class="pokemon_list_number">#{{i+1}} </span><span @click="visualizza(item.url)"><a href="#" class="pokemon_list_name">{{item.name}}</a></span>
+          <span class="pokemon_list_number">#{{n+i}} </span><span @click="visualizza(item.url)"><a href="#" class="pokemon_list_name">{{item.name}}</a></span>
         </span>
       </li>
     </ul>
@@ -19,7 +19,7 @@ name:'Sidebar',
 components:{
 
 },
-props:["lista"], //prop in arrivo da Home
+props:["lista","n"], //prop in arrivo da Home
 data() {
   return {
     ricerca : "",
