@@ -11,9 +11,14 @@
         
       <!-- test blurr -->
       <div class="container text-center">
-         <div class="row row-cols-1">
-          <div class="col" @click="page([0,20])">
-            0-20
+         <div class="row">
+          <div class="col d-inline" v-for="(button,index) in buttons" :key="index" @click="page([0,20])">
+            <div class="d-inline" v-if="index < 44"> 
+              <div  @click="page(button)">
+               {{button}}-{{button + 20}}
+
+              </div>
+            </div>
           </div>
           <div class="col" @click="page([20,20])">
             20-40
@@ -39,7 +44,6 @@
                     :urlPokemon="item.url" 
                     :numberPokedex="index + indice"
                     ref="Card"
-
               /> 
             </div>
           </div>
@@ -72,14 +76,14 @@ export default {
     props:["list", "type","indice"], //list : lista pokemon ; type : lista tipi 
     data() {
       return {
-   
+        buttons : [],
       }
     },
     methods: {
       page(vet){
         console.log("emit value : " , vet);
         this.$emit('clicked',vet); //vet -> emit -> interval
-        for(let i=vet[0] ; i <= vet[1] ; i++){
+        for(let i=vet ; i <= (vet+20) ; i++){
           console.log("indice i di vet : ", i);
           this.$refs.Card[i].img_type_Getter();
         }
@@ -88,7 +92,10 @@ export default {
    
     created() {
       // console.log(this.list);
-      
+      for(let i=0 ; i <=880 ; i=i+20){
+        this.buttons.push(i);
+      }
+      console.log(this.buttons);
     },
 }
 </script>
