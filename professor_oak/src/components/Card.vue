@@ -95,7 +95,7 @@ mounted() {
 <style lang="scss" scoped>
 .poke_card {
   text-align: center;
-  line-height: 2;   // ! Rivedere!!! 2px???
+  line-height: 1.3rem;
   color: var(--white);
   background-color: transparent;
 
@@ -104,7 +104,7 @@ mounted() {
     background-color: var(--dark-grey);
     backdrop-filter: blur(5px);
 
-    border: 1px solid var(--transparent-grey);
+    border: 1px solid var(--ultra-transparent-grey);
     border-radius: 6px;
     box-shadow: -1px 1px 5px 9px var(--ultra-transparent-grey);
     padding: 15px;

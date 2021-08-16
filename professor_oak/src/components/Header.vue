@@ -28,7 +28,6 @@
 
             <span class="navbar-text tag_line">Gotta catch 'em all!</span>
 
-
             <button 
               class="btn btn-outline-success" 
               role="button" 
@@ -82,7 +81,6 @@ export default {
 },
 
   methods: {
-    
     pokemonRandomGet() { // Pesco 20 pokemon casuali
     this.randomNumber = Math.floor(Math.random() * (898 - 0 + 1) + 0);
 
@@ -91,18 +89,13 @@ export default {
         
         .then(response => {
           this.pokemonListRandom = []
-          console.log(this.randomNumber);
           this.pokemonListRandom.push(response.data.results[this.randomNumber -1]);
-          console.log(this.pokemonListRandom);
-
         })
 
       axios
         .get(this.url + 'pokemon' + '/' + this.randomNumber)
         .then(response => {
-          console.log(this.url + 'pokemon' + '/' + this.randomNumber);
           this.pokeSprite = response.data.sprites.front_default;
-          console.log('MIO lOG',this.pokeSprite);
         })
     }
   }
