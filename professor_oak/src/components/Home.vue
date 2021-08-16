@@ -20,7 +20,7 @@
               </div>
             </div>
           </div>
-          <div class="col" @click="page([20,20])">
+          <div class="col" @click="page(20)">
             20-40
           </div>
         </div>

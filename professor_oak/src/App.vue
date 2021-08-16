@@ -34,7 +34,7 @@ export default {
   created() {
     console.log("created");
     console.log("pokemon : " , this.url);
-    this.pokemonGetter([0,20]);//axios call per lista pokemon
+    this.pokemonGetter(0);//axios call per lista pokemon
     this.typeGetter(); //axio call per lista tipi
   },
   methods: {
@@ -42,12 +42,12 @@ export default {
         console.log("emit test function",value);
       },
       pokemonGetter(interval){
-        this.i=interval[0]+1; //test numero pokedex (mi da il numero di partenza)
+        this.i=interval +1; //test numero pokedex (mi da il numero di partenza)
         // lista pokemon
         this.pokemon = ""; //i shit you not this was an entire afternoon of trial and error arasgjsdkjfsndkfjsnfkdjsnkjsnfkfjn
-        console.log(this.url + 'pokemon?limit='+interval[1]+'&offset='+interval[0]);
+        console.log(this.url + 'pokemon?limit='+20+'&offset='+interval);
         axios
-          .get(this.url + 'pokemon?limit='+interval[1]+'&offset='+interval[0])
+          .get(this.url + 'pokemon?limit='+20+'&offset='+interval)
           .then(response =>{
             // console.log(response.data.results); //object {name , url}
             this.pokemon = response.data.results; //lista di tutti i pokemon
