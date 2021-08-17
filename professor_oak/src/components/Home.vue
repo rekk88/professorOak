@@ -10,7 +10,7 @@
       </div>
         
       <!-- test blurr -->
-      <div class="container text-center">
+      <div class="container text-center mb-3 button_container_wrap">
          <div class="button_container">
           <div class="d-inline-block" v-for="(button,index) in buttons" :key="index">
             <div v-if="index < 44"> 
@@ -100,17 +100,19 @@ export default {
 
 
 <style lang="scss" scoped>
+// @import 'scss/colors.scss';
+.button_container_wrap{
+  height: 7%;
+}
 .button_container{
   overflow-x: scroll;
   display: flex;
 }
 .button_container::-webkit-scrollbar{
-  background-color: red;
-  color: red;
+  background-color: transparent;
 }
 .button_container::-webkit-scrollbar-thumb{
-  color: red;
-  background: red;
+  background: var(--transparent-grey);
   border-radius: 10px !important;
 }
 
@@ -129,7 +131,7 @@ export default {
       height: 35%;
     }
     .main_content_wrap{
-      height: 60%;
+      height: 57%;
       box-shadow: -1px 1px 5px 9px var(--ultra-transparent-grey);
       .card_wrap{
         height: max-content;
