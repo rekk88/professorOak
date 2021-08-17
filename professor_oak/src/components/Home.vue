@@ -42,6 +42,7 @@
               <Card :n="item.name" 
                     :urlPokemon="item.url" 
                     :numberPokedex="index + indice"
+                    :search="searchP" 
                     ref="Card"                    
               /> 
             </div>
@@ -76,6 +77,7 @@ export default {
     data() {
       return {
         buttons : [],
+        searchP : "",
       }
     },
     methods: {
@@ -88,8 +90,10 @@ export default {
         }
       },
 
-       searchPokemon(text) {
+      searchPokemon(text) {
         console.log(text);
+        this.searchP = text;
+        console.log(this.searchP);
       } 
     },
    

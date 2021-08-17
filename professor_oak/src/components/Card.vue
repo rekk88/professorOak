@@ -49,7 +49,7 @@ export default {
    }
  },
 
-props:["n", "urlPokemon", "numberPokedex"],
+props:["n", "urlPokemon", "numberPokedex","search"],
 methods: {
   refsRead(){
     console.log(this.$refs);
