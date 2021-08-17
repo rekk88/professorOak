@@ -74,7 +74,7 @@ methods: {
    
     this.sprite = obj1.data.sprites.front_default;
     obj2.data.flavor_text_entries.forEach(element => {
-      console.log("flavor text : ",element);
+      // console.log("flavor text : ",element);
       if(element.language.name == "en"){
         this.descriptionText = element.flavor_text;
       }
@@ -87,7 +87,9 @@ methods: {
       }
       else this.type2 = '';
   }));
-  }
+  },
+
+ 
 },
 mounted() {
   // console.log(this.urlPokemon),

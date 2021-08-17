@@ -5,13 +5,13 @@
         <nav class="my_nav navbar">
           <div class="container-fluid">
             <form class="d-flex">
-              <input class="form-control me-2 opacity-75" type="search" placeholder="Search a Pokémon" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">
+              <input class="form-control me-2 opacity-75" type="search" placeholder="Search a Pokémon" aria-label="Search" v-model="inputText">
+              <button class="btn btn-outline-success" type="submit" @click.prevent="$emit('searchForm', inputText)">
                 <i class="bi bi-search"></i>
               </button>
             </form>
 
-            <li class="nav nav-item dropdown position-relative">
+            <li class="nav nav-item dropdown">
               <a class="nav-link link-success dropdown-toggle" 
                  data-bs-toggle="dropdown" 
                  href="#" role="button" 
@@ -19,10 +19,10 @@
                   Filter by type
               </a>
                   
-              <ul class="dropdown-menu position-absolute mt-3 p-1 my_drpo-menu_color">
-                <li v-for="(item, index) in tipi" :key="index" :class="item.name">
-                  <a class="dropdown-item" href="#">{{item.name}}</a>
-                </li> 
+              <ul class="dropdown-menu mt-3 p-1 my_drpo-menu_color" >
+                <li v-for="(item, index) in tipi" :key="index">
+                  <a class="dropdown-item" href="#" :class=item.name>{{item.name}}</a>
+                </li>
               </ul>
             </li>
 
@@ -69,6 +69,7 @@ export default {
   
   data() {
     return {
+    inputText:'',
     url: 'https://pokeapi.co/api/v2/',
     randomNumber: [],
     pokemonListRandom: [],
@@ -113,11 +114,6 @@ export default {
 .my_drpo-menu_color {
   background-color: var(--ultra-transparent-grey);
   backdrop-filter: blur(5px);
-}
-
-.dropdown-item:hover {
-  background-color: var(--transparent-grey);
-  border-radius: 50rem!important;
 }
 
 input:focus { 

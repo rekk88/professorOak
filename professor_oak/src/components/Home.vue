@@ -5,6 +5,7 @@
         <Logo/>
         <Header 
           :tipi="type"
+          @searchForm="searchPokemon"
         />
 
       </div>
@@ -41,7 +42,7 @@
               <Card :n="item.name" 
                     :urlPokemon="item.url" 
                     :numberPokedex="index + indice"
-                    ref="Card"
+                    ref="Card"                    
               /> 
             </div>
           </div>
@@ -71,7 +72,7 @@ export default {
       Sidebar
     },
     //prop in arrivo da App (con il risultato della chiamata axios)
-    props:["list", "type","indice"], //list : lista pokemon ; type : lista tipi 
+    props:["list", "type", "indice"], //list : lista pokemon ; type : lista tipi 
     data() {
       return {
         buttons : [],
@@ -85,7 +86,11 @@ export default {
           console.log("indice i di vet : ", i);
           this.$refs.Card[i].img_type_Getter();
         }
-      }
+      },
+
+       searchPokemon(text) {
+        console.log(text);
+      } 
     },
    
     created() {
