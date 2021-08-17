@@ -54,6 +54,7 @@
                     :search="searchP" 
                     ref="Card"                    
               /> 
+              
             </div>
           </div>
         </div>
