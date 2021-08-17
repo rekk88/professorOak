@@ -38,7 +38,7 @@
        
         <div class="row row-cols-3">
           <div class="col card_wrap" v-for="(item, index) in list" :key="index"> 
-            <div v-if="(searchP == item.name)"> <!--v-if per la ricerca da header -->
+            <div v-if="(item.name.includes(searchP))"> <!--v-if per la ricerca da header -->
               <Card :n="item.name" 
                     :urlPokemon="item.url" 
                     :numberPokedex="index + indice"
@@ -54,7 +54,7 @@
                     :search="searchP" 
                     ref="Card"                    
               /> 
-              
+
             </div>
           </div>
         </div>
