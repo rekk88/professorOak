@@ -73,7 +73,13 @@ methods: {
     // console.log("obj 1 : ",obj1.data.sprites.front_default);
    
     this.sprite = obj1.data.sprites.front_default;
-    this.descriptionText = obj2.data.flavor_text_entries[0].flavor_text;
+    obj2.data.flavor_text_entries.forEach(element => {
+      console.log("flavor text : ",element);
+      if(element.language.name == "en"){
+        this.descriptionText = element.flavor_text;
+      }
+    });
+    // this.descriptionText = obj2.data.flavor_text_entries[0].flavor_text;
    
     this.type1 = obj1.data.types[0].type;
       if (obj1.data.types.length == 2) {
