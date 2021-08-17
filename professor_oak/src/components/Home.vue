@@ -54,7 +54,6 @@
                     :search="searchP" 
                     ref="Card"                    
               /> 
-
             </div>
           </div>
         </div>
@@ -101,7 +100,7 @@ export default {
 
       searchPokemon(text) {
         console.log(text);
-        this.searchP = text;
+        this.searchP = text.toLowerCase();
         console.log(this.searchP);
       } 
     },
