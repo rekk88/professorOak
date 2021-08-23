@@ -46,14 +46,27 @@ export default {
         // lista pokemon
         this.pokemon = ""; //i shit you not this was an entire afternoon of trial and error arasgjsdkjfsndkfjsnfkdjsnkjsnfkfjn
         console.log(this.url + 'pokemon?limit='+20+'&offset='+interval);
-        axios
-          .get(this.url + 'pokemon?limit='+20+'&offset='+interval)
-          .then(response =>{
-            // console.log(response.data.results); //object {name , url}
-            this.pokemon = response.data.results; //lista di tutti i pokemon
+        if(interval >= 880){
+          axios
+            .get(this.url + 'pokemon?limit='+18+'&offset='+interval)
+            .then(response =>{
+              // console.log(response.data.results); //object {name , url}
+              this.pokemon = response.data.results; //lista di tutti i pokemon
 
-            console.log("pokemon list : " , this.pokemon);
-          })
+              console.log("pokemon list : " , this.pokemon);
+            })
+        }
+        else{
+          axios
+            .get(this.url + 'pokemon?limit='+20+'&offset='+interval)
+            .then(response =>{
+              // console.log(response.data.results); //object {name , url}
+              this.pokemon = response.data.results; //lista di tutti i pokemon
+
+              console.log("pokemon list : " , this.pokemon);
+            })
+        }
+       
       },
       typeGetter(){
         // Type

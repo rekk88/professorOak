@@ -19,9 +19,12 @@
                {{button}}-{{button + 20}}
 
               </div>
+             
+            </div>
+            <div class="test_button" v-else @click="page(880)">
+              881-898
             </div>
           </div>
-        
         </div>
       </div>
       
@@ -93,10 +96,13 @@ export default {
       page(vet){
         console.log("emit value : " , vet);
         this.$emit('clicked',vet); //vet -> emit -> interval
-        for(let i=vet ; i <= (vet+20) ; i++){
-          console.log("indice i di vet : ", i);
-          this.$refs.Card[i].img_type_Getter();
-        }
+        
+         for(let i=vet ; i <= (vet+20) ; i++){
+            console.log("indice i di vet : ", i);
+            this.$refs.Card[i].img_type_Getter();  
+          }
+        
+       
       },
 
       searchPokemon(text) {
@@ -136,6 +142,7 @@ export default {
 
 .test_button{
   padding: 0px 5px;
+  color: var(--grey);
 }
 .home_wrap {
   height: 100vh;
