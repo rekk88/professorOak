@@ -7,17 +7,14 @@
           :tipi="type"
           @searchForm="searchPokemon"
         />
-
       </div>
         
-      <!-- test blurr -->
       <div class="container text-center mb-3 button_container_wrap">
-         <div class="button_container">
+        <div class="button_container">
           <div class="d-inline-block" v-for="(button,index) in buttons" :key="index">
             <div v-if="index < 44"> 
               <div class="test_button"  @click="page(button)">
-               {{button}}-{{button + 20}}
-
+                {{button}}-{{button + 20}}
               </div>
              
             </div>
@@ -29,43 +26,40 @@
       </div>
       
       <div class="main_content_wrap container d-flex p-0 rounded">
-         <div class="col">
-            <div class="h_100">
-              <div class="p-0 h_100">
-                <Sidebar :lista="list" :n="indice"/>
-              </div>
+        <div class="col">
+          <div class="h_100">
+            <div class="p-0 h_100">
+              <Sidebar :lista="list" :n="indice"/>
             </div>
+          </div>
         </div>
-        
-      <div class="container d-flex justify-content-center align-items-start col-10 py-3 overflow scrollbar">
-       
-        <div class="row row-cols-3">
-          <div class="col card_wrap" v-for="(item, index) in list" :key="index"> 
-            <div v-if="(item.name.includes(searchP))"> <!--v-if per la ricerca da header -->
-              <Card :n="item.name" 
-                    :urlPokemon="item.url" 
-                    :numberPokedex="index + indice"
-                    :search="searchP" 
-                    ref="Card"                    
-              /> 
-            </div>  
+          
+        <div class="container d-flex justify-content-center align-items-start col-10 py-3 overflow scrollbar">
+          <div class="row row-cols-3">
+            <div class="col card_wrap" v-for="(item, index) in list" :key="index"> 
+              <div v-if="(item.name.includes(searchP))"> <!--v-if per la ricerca da header -->
+                  <Card :n="item.name" 
+                      :urlPokemon="item.url" 
+                      :numberPokedex="index + indice"
+                      :search="searchP" 
+                      ref="Card"                    
+                  /> 
+              </div>  
 
-            <div v-else-if="(searchP == '')"> 
-              <Card :n="item.name" 
-                    :urlPokemon="item.url" 
-                    :numberPokedex="index + indice"
-                    :search="searchP" 
-                    ref="Card"                    
-              /> 
-
+              <div v-else-if="(searchP == '')"> 
+                  <Card :n="item.name" 
+                        :urlPokemon="item.url" 
+                        :numberPokedex="index + indice"
+                        :search="searchP" 
+                        ref="Card"                    
+                  /> 
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-     
   </div>
-</div>
 </template>
 
 
@@ -107,7 +101,7 @@ export default {
 
       searchPokemon(text) {
         console.log(text);
-        this.searchP = text;
+        this.searchP = text.toLowerCase();
         console.log(this.searchP);
       } 
     },
