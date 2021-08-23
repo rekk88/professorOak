@@ -35,25 +35,31 @@
         </div>
           
         <div class="container d-flex justify-content-center align-items-start col-10 py-3 overflow scrollbar">
-          <div class="row row-cols-3">
-            <div class="col card_wrap" v-for="(item, index) in list" :key="index"> 
-              <div v-if="(item.name.includes(searchP))"> <!--v-if per la ricerca da header -->
-                  <Card :n="item.name" 
-                      :urlPokemon="item.url" 
-                      :numberPokedex="index + indice"
-                      :search="searchP" 
-                      ref="Card"                    
-                  /> 
-              </div>  
-
-              <div v-else-if="(searchP == '')"> 
-                  <Card :n="item.name" 
-                        :urlPokemon="item.url" 
-                        :numberPokedex="index + indice"
-                        :search="searchP" 
-                        ref="Card"                    
-                  /> 
-              </div>
+          <div v-if="filteredList.length == 0">
+            <div class="row row-cols-3">
+                <div class="col card_wrap" v-for="(item, index) in list" :key="index"> 
+                  <div class=""> <!--v-if per la ricerca da header -->
+                      <Card :n="item.name" 
+                          :urlPokemon="item.url" 
+                          :numberPokedex="index + indice"
+                          :search="searchP" 
+                          ref="Card"                    
+                      /> 
+                  </div>  
+                </div>
+            </div>
+          </div>
+          <div v-else>
+             <div class="row row-cols-3">
+                <div class="col card_wrap" v-for="(item, index) in filteredList" :key="index"> 
+                  <div class=""> <!--v-if per la ricerca da header -->
+                      <Card :n="item[0].name" 
+                          :urlPokemon="item[0].url" 
+                          :numberPokedex="item[1]"
+                          ref="Card"                    
+                      /> 
+                  </div>  
+                </div>
             </div>
           </div>
         </div>
@@ -64,6 +70,7 @@
 
 
 <script>
+import axios from 'axios'
 import Card from './Card.vue'
 import Header from './Header.vue'
 import Logo from './Logo.vue'
@@ -84,6 +91,8 @@ export default {
       return {
         buttons : [],
         searchP : "",
+        filteredList : this.list,
+        id : "",
       }
     },
     methods: {
@@ -103,6 +112,30 @@ export default {
         console.log(text);
         this.searchP = text.toLowerCase();
         console.log(this.searchP);
+        this.filteredList = [];
+        let obj = {};
+        this.list.forEach((element) => {
+          if(element.name.includes(this.searchP)){
+            console.log(element);
+            axios
+              .get(element.url)
+              .then(response => {
+                console.log(element);
+                // this.id=responde.data.id;
+                obj["0"] = element;
+                obj["1"] = response.data.id;
+                this.filteredList.push(obj);
+                console.log(this.filteredList);
+                // obj = {};
+              })
+          }
+          else if(this.searchP == ''){
+            this.filteredList = this.list;
+            // this.$refs.Card[index].img_type_Getter();
+              
+
+          }
+        });
       } 
     },
    
@@ -113,6 +146,7 @@ export default {
       }
       console.log(this.buttons);
     },
+    
 }
 </script>
 

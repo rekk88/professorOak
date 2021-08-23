@@ -49,7 +49,7 @@ export default {
    }
  },
 
-props:["n", "urlPokemon", "numberPokedex","search"],
+props:["n", "urlPokemon", "numberPokedex"],
 methods: {
   refsRead(){
     console.log(this.$refs);
@@ -95,7 +95,6 @@ mounted() {
   // console.log(this.urlPokemon),
   this.img_type_Getter()
 },
-
 }
 </script>
 
