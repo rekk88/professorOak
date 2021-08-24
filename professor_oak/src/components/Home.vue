@@ -136,26 +136,7 @@ export default {
                         
               })
           }
-          // if(element.name.includes(text)){
-          //   console.log(element);
-          //   axios
-          //     .get(element.url)
-          //     .then(response => {
-          //       console.log(element);
-          //       // this.id=responde.data.id;
-          //       obj["0"] = element;
-          //       obj["1"] = response.data.id;
-          //       this.filteredList.push(obj);
-          //       console.log(this.filteredList);
-          //       // obj = {};
-          //     })
-          // }
-          // else if(this.searchP == ''){
-          //   this.filteredList = this.list;
-          //   // this.$refs.Card[index].img_type_Getter();
-              
-
-          // }
+         
         });
         console.log(this.filteredList);
 
