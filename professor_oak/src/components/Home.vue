@@ -53,9 +53,9 @@
              <div class="row row-cols-3">
                 <div class="col card_wrap" v-for="(item, index) in filteredList" :key="index"> 
                   <div class=""> <!--v-if per la ricerca da header -->
-                      <Card :n="item[0].name" 
-                          :urlPokemon="item[0].url" 
-                          :numberPokedex="item[1]"
+                      <Card :n="item.nome" 
+                          :urlPokemon="item.url" 
+                          :numberPokedex="item.id"
                           ref="Card"                    
                       /> 
                   </div>  
@@ -71,6 +71,7 @@
 
 <script>
 import axios from 'axios'
+// import axios from 'axios'
 import Card from './Card.vue'
 import Header from './Header.vue'
 import Logo from './Logo.vue'
@@ -114,28 +115,48 @@ export default {
         console.log(this.searchP);
         this.filteredList = [];
         let obj = {};
+        let nome = "";
+        let url = "";
+        let id = "";
         this.list.forEach((element) => {
+          // console.log(element);
           if(element.name.includes(this.searchP)){
             console.log(element);
             axios
               .get(element.url)
-              .then(response => {
-                console.log(element);
-                // this.id=responde.data.id;
-                obj["0"] = element;
-                obj["1"] = response.data.id;
+              .then(response =>{
+                nome = element.name; //nome pokemon
+                url = element.url; //url pokemon
+                id = response.data.id;  //id pokemon
+                obj = {nome , url , id}
                 this.filteredList.push(obj);
-                console.log(this.filteredList);
-                // obj = {};
+                console.log(response.data.id);
+                        
               })
           }
-          else if(this.searchP == ''){
-            this.filteredList = this.list;
-            // this.$refs.Card[index].img_type_Getter();
+          // if(element.name.includes(text)){
+          //   console.log(element);
+          //   axios
+          //     .get(element.url)
+          //     .then(response => {
+          //       console.log(element);
+          //       // this.id=responde.data.id;
+          //       obj["0"] = element;
+          //       obj["1"] = response.data.id;
+          //       this.filteredList.push(obj);
+          //       console.log(this.filteredList);
+          //       // obj = {};
+          //     })
+          // }
+          // else if(this.searchP == ''){
+          //   this.filteredList = this.list;
+          //   // this.$refs.Card[index].img_type_Getter();
               
 
-          }
+          // }
         });
+        console.log(this.filteredList);
+
       } 
     },
    
