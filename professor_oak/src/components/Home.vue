@@ -98,6 +98,9 @@ export default {
     },
     methods: {
       page(vet){
+        this.filteredList = []; //permette di visualizzare al click di un nuovo slot di pokemon 
+        //dopo aver effettuato una ricerca da input text in header
+
         console.log("emit value : " , vet);
         this.$emit('clicked',vet); //vet -> emit -> interval
         
@@ -106,7 +109,6 @@ export default {
             this.$refs.Card[i].img_type_Getter();  
           }
         
-       
       },
 
       searchPokemon(text) {
