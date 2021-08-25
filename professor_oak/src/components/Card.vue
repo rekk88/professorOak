@@ -2,27 +2,27 @@
   <div class="card poke_card flip_card container border-0" style="width: 18rem;">
     <div class="flip_inner">
       <div class="flip_front">
-        <img :src="sprite" class="card-img-top rounded-circle" alt="sprite">
+        <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+this.readId()+'.png'" class="card-img-top rounded-circle" alt="sprite">
       </div>
       <div class="flip_back rounded-circle">
         <!-- back text -->
-        <img :src="official_artwork" class="card-img-top rounded-circle" alt="back image">
-        <div class="card_back_text">{{descriptionText}}</div>
+        <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/'+this.readId()+'.png'" class="card-img-top rounded-circle" alt="back image">
+        <div class="card_back_text">{{pokemon.descr}}</div>
       </div>
     </div>
     
     <div class="card-body">
       <h5 class="card-title">
         <!-- pokemon id and name here -->
-        <span class="pokemon_number" @click="refsRead">#{{numberPokedex}}</span> <span class="pokemon_name text-capitalize"><a :href="urlPokemon" class="text-decoration-none">{{n}}</a></span>
+        <span class="pokemon_number" @click="refsRead">#{{readId()}}</span> <span class="pokemon_name text-capitalize"><a :href="pokemon.url" class="text-decoration-none">{{pokemon.name}}</a></span>
       </h5>
       
       <!-- type here -->
       <h6 class="text-center">
         <!-- first -->
-        <span :class="type1.name">{{type1.name}}</span> 
+        <span :class="pokemon.type1.name">{{pokemon.type1.name}}</span> 
         <!-- second -->
-        <span :class="type2.name">{{type2.name}}</span>
+        <span :class="pokemon.type2.name">{{pokemon.type2.name}}</span>
       </h6>
 
       <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -42,14 +42,14 @@ export default {
      test : this.n,
      sprite : "",
      descriptionText:"",
-     official_artwork : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+this.numberPokedex+".png",
-     descriptionUrl : "https://pokeapi.co/api/v2/pokemon-species/"+this.numberPokedex+"/",
+     official_artwork : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+this.readId()+".png",
+     descriptionUrl : "https://pokeapi.co/api/v2/pokemon-species/"+this.readId()+"/",
      type1: "",
      type2: "",
    }
  },
 
-props:["n", "urlPokemon", "numberPokedex"],
+props:["pokemon"],
 methods: {
   refsRead(){
     console.log(this.$refs);
@@ -57,16 +57,25 @@ methods: {
   test2: function(){
     console.log("sono il metodo test2!");
   },
+  readId:function()
+  {
+      const id_split = this.pokemon.url.split('/')
+      let id = id_split.pop()
+      id = id_split.pop()
+     
+      return id
+  },
  
-  img_type_Getter(){
+  img_type_Getter()
+  {
     this.sprite="";
     this.descriptionText="";
-    this.official_artwork = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+this.numberPokedex+".png",
-    this.descriptionUrl="https://pokeapi.co/api/v2/pokemon-species/"+this.numberPokedex+"/",
-
+    this.official_artwork = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+this.readId()+".png",
+    this.descriptionUrl="https://pokeapi.co/api/v2/pokemon-species/"+this.readId()+"/",
+    console.log( this.official_artwork )
 
     axios.all([
-      axios.get(this.urlPokemon), //chiamata per sprite e tipo del singolo pokemon
+      axios.get(this.pokemon.url), //chiamata per sprite e tipo del singolo pokemon
       axios.get(this.descriptionUrl) //chiamata per la descrizione del pokemon
     ])
     .then(axios.spread((obj1, obj2)=>{
@@ -92,9 +101,10 @@ methods: {
  
 },
 mounted() {
-  // console.log(this.urlPokemon),
-  this.img_type_Getter()
+ 
+  
 },
+
 }
 </script>
 

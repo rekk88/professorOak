@@ -35,27 +35,12 @@
         </div>
           
         <div class="container d-flex justify-content-center align-items-start col-10 py-3 overflow scrollbar">
-          <div v-if="filteredList.length == 0">
+          <div>
             <div class="row row-cols-3">
-                <div class="col card_wrap" v-for="(item, index) in list" :key="index"> 
+                <div class="col card_wrap" v-for="(item, index) in fList" :key="index"> 
                   <div class=""> <!--v-if per la ricerca da header -->
-                      <Card :n="item.name" 
-                          :urlPokemon="item.url" 
-                          :numberPokedex="index + indice"
-                          :search="searchP" 
-                          ref="Card"                    
-                      /> 
-                  </div>  
-                </div>
-            </div>
-          </div>
-          <div v-else>
-             <div class="row row-cols-3">
-                <div class="col card_wrap" v-for="(item, index) in filteredList" :key="index"> 
-                  <div class=""> <!--v-if per la ricerca da header -->
-                      <Card :n="item.nome" 
-                          :urlPokemon="item.url" 
-                          :numberPokedex="item.id"
+                      <Card 
+                          :pokemon="item" 
                           ref="Card"                    
                       /> 
                   </div>  
@@ -70,8 +55,8 @@
 
 
 <script>
-import axios from 'axios'
 // import axios from 'axios'
+import axios from 'axios'
 import Card from './Card.vue'
 import Header from './Header.vue'
 import Logo from './Logo.vue'
@@ -87,12 +72,13 @@ export default {
       Sidebar
     },
     //prop in arrivo da App (con il risultato della chiamata axios)
-    props:["list", "type", "indice"], //list : lista pokemon ; type : lista tipi 
+    props:["list", "type", "indice","staticList"], //list : lista pokemon ; type : lista tipi 
     data() {
       return {
         buttons : [],
         searchP : "",
-        filteredList : this.list,
+        fList : this.list,
+        baseList : this.staticList,
         id : "",
       }
     },
@@ -104,60 +90,94 @@ export default {
         console.log("emit value : " , vet);
         this.$emit('clicked',vet); //vet -> emit -> interval
         
-         for(let i=vet ; i <= (vet+20) ; i++){
-            console.log("indice i di vet : ", i);
-            this.$refs.Card[i].img_type_Getter();  
-          }
+        this.reloadList()      
         
       },
 
-      searchPokemon(text) {
-        if(text != ""){
-          console.log(text);
-          this.searchP = text.toLowerCase();
-          console.log(this.searchP);
-          this.filteredList = [];
-          // oggetto da caricare in filteredList
-          let obj = {};
-          // proprietà dell'oggetto obj
-          let nome = "";
-          let url = "";
-          let id = "";
-          this.list.forEach((element) => {
-            // console.log(element);
-            if(element.name.includes(this.searchP)){
-              console.log(element);
-              axios
-                .get(element.url)
-                .then(response =>{
-                  nome = element.name; //nome pokemon
-                  url = element.url; //url pokemon
-                  id = response.data.id;  //id pokemon
-                  obj = {nome , url , id}
-                  this.filteredList.push(obj);
-                  console.log(response.data.id);
+       readId:function( url )
+      {
+          const id_split = url.split('/')
+          let id = id_split.pop()
+          id = id_split.pop()
+        
+          return id
+      },
 
-                })
+      loadPokemon( pokemon )
+      {
+          let descr         = "";
+          let type1         = "";
+          let type2         = "";
+
+          let descrUrl = "https://pokeapi.co/api/v2/pokemon-species/"+this.readId( pokemon.url )+"/";
+          axios.all([
+                  axios.get(pokemon.url), //chiamata per sprite e tipo del singolo pokemon
+                  axios.get(descrUrl) //chiamata per la descrizione del pokemon
+          ])
+          .then(axios.spread((obj1, obj2)=>{  
               
+                obj2.data.flavor_text_entries.forEach(element => {
+                  
+                  if(element.language.name == "en"){
+                      descr = element.flavor_text;
+                      
+                  }
+                });
+
+                type1 = obj1.data.types[0].type;
+
+                if (obj1.data.types.length == 2) {
+                    type2 = obj1.data.types[1].type;
+                }
+
+                else type2 = '';
+                
+                this.fList.push({...pokemon, descr, type1, type2 });
+          }));               
+
+      },
+
+      reloadList()
+      {
+            this.list.forEach((element) => {
+                  this.loadPokemon( element )            
+             });
+      },
+
+      searchPokemon(text) 
+      {
+
+        this.fList    = new Array();   
+
+        if(text != ""){
+         
+          this.searchP  = text.toLowerCase();  
+          this.list.forEach((element) => {
+            
+            if(element.name.includes(this.searchP))
+            {
+                this.loadPokemon( element )                
             }
           
           });
-          console.log(this.filteredList);
+          
         }
         else{
-          this.filteredList = [];
+        
+            this.reloadList()
         }
         
 
       } 
     },
    
-    created() {
-      // console.log(this.list);
+    mounted() {
+   
       for(let i=0 ; i <=880 ; i=i+20){
         this.buttons.push(i);
-      }
-      console.log(this.buttons);
+      } 
+    
+    
     },
     
 }

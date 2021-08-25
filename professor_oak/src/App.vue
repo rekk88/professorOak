@@ -2,6 +2,7 @@
   <div id="app">
     <Home 
     :list="pokemon"
+    :staticList="pokemon"
     :type="types"
     :indice="i"
     @clicked="pokemonGetter"
@@ -29,6 +30,7 @@ export default {
       // pokemonList : pokemon + 'pokemon?limit=898',
       pokemon : [],
       types: [],
+
     }
   },
   created() {
@@ -42,6 +44,7 @@ export default {
         console.log("emit test function",value);
       },
       pokemonGetter(interval){
+        
         this.i=interval +1; //test numero pokedex (mi da il numero di partenza)
         // lista pokemon
         this.pokemon = ""; //i shit you not this was an entire afternoon of trial and error arasgjsdkjfsndkfjsnfkdjsnkjsnfkfjn
@@ -52,7 +55,7 @@ export default {
             .then(response =>{
               // console.log(response.data.results); //object {name , url}
               this.pokemon = response.data.results; //lista di tutti i pokemon
-
+              
               console.log("pokemon list : " , this.pokemon);
             })
         }
