@@ -112,33 +112,42 @@ export default {
       },
 
       searchPokemon(text) {
-        console.log(text);
-        this.searchP = text.toLowerCase();
-        console.log(this.searchP);
-        this.filteredList = [];
-        let obj = {};
-        let nome = "";
-        let url = "";
-        let id = "";
-        this.list.forEach((element) => {
-          // console.log(element);
-          if(element.name.includes(this.searchP)){
-            console.log(element);
-            axios
-              .get(element.url)
-              .then(response =>{
-                nome = element.name; //nome pokemon
-                url = element.url; //url pokemon
-                id = response.data.id;  //id pokemon
-                obj = {nome , url , id}
-                this.filteredList.push(obj);
-                console.log(response.data.id);
-                        
-              })
-          }
-         
-        });
-        console.log(this.filteredList);
+        if(text != ""){
+          console.log(text);
+          this.searchP = text.toLowerCase();
+          console.log(this.searchP);
+          this.filteredList = [];
+          // oggetto da caricare in filteredList
+          let obj = {};
+          // proprietà dell'oggetto obj
+          let nome = "";
+          let url = "";
+          let id = "";
+          this.list.forEach((element) => {
+            // console.log(element);
+            if(element.name.includes(this.searchP)){
+              console.log(element);
+              axios
+                .get(element.url)
+                .then(response =>{
+                  nome = element.name; //nome pokemon
+                  url = element.url; //url pokemon
+                  id = response.data.id;  //id pokemon
+                  obj = {nome , url , id}
+                  this.filteredList.push(obj);
+                  console.log(response.data.id);
+
+                })
+              
+            }
+          
+          });
+          console.log(this.filteredList);
+        }
+        else{
+          this.filteredList = [];
+        }
+        
 
       } 
     },
