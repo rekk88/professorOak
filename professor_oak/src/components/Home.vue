@@ -164,7 +164,7 @@ export default {
               this.show = true;
 
             
-            }, 300);
+            }, 1200);
       },
 
       searchPokemon(text) 
