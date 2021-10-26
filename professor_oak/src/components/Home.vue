@@ -38,7 +38,7 @@
           <div>
             <div class="row row-cols-3">
                 <div class="col card_wrap" v-for="(item, index) in fList" :key="index"> 
-                  <div class=""> <!--v-if per la ricerca da header -->
+                  <div class="" v-if="show"> <!--v-if per la ricerca da header -->
                       <Card 
                           :pokemon="item" 
                           ref="Card"                    
@@ -77,9 +77,10 @@ export default {
       return {
         buttons : [],
         searchP : "",
-        fList : this.list,
+        fList : [],
         baseList : this.staticList,
         id : "",
+        show : false,
       }
     },
     methods: {
@@ -103,8 +104,12 @@ export default {
           return id
       },
 
-      loadPokemon( pokemon )
+      loadPokemon( pokemon ) //element  = pokemon per reference
       {
+          this.fList = []; //svuoto il vettore
+          // setTimeout(3000);
+          console.log("loadPokemon" , "list : " , this.list);
+         
           let descr         = "";
           let type1         = "";
           let type2         = "";
@@ -131,23 +136,41 @@ export default {
                 }
 
                 else type2 = '';
-                
-                this.fList.push({...pokemon, descr, type1, type2 });
+                setTimeout(()=>{
+                  this.fList.push({...pokemon, descr, type1, type2 });
+
+                },1000);
+                console.log(pokemon.name);
+
           }));               
 
       },
 
-      reloadList()
+      async reloadList()
       {
-            this.list.forEach((element) => {
-                  this.loadPokemon( element )            
-             });
+            // this.show = false;
+           
+            setTimeout(()=>{ 
+              //  this.list.forEach((element) => {
+              //     // setTimeout(300);
+              //     this.loadPokemon( element )            
+              //  });
+
+              for(let element of this.list){
+                 this.loadPokemon(element)
+
+               }
+              console.log("delay list : " , this.list);
+              this.show = true;
+
+            
+            }, 300);
       },
 
       searchPokemon(text) 
       {
 
-        this.fList    = new Array();   
+        this.fList = new Array();   
 
         if(text != ""){
          
@@ -164,7 +187,7 @@ export default {
         }
         else{
         
-            this.reloadList()
+            this.reloadList(); //visualizzazione al caricamento della pagina
         }
         
 
@@ -175,11 +198,17 @@ export default {
    
       for(let i=0 ; i <=880 ; i=i+20){
         this.buttons.push(i);
-      } 
-    
+      }
+      // this.fList = this.list
+      console.log("pre reload");
+      console.log("post reload");
     
     },
-    
+    created() {
+      // this.fList = this.list
+      this.reloadList();
+      
+    },
 }
 </script>
 

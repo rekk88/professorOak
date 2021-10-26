@@ -28,7 +28,7 @@ data() {
   }
 },
 mounted() {
-  console.log(this.lista);
+  // console.log(this.lista);
 },
 // computed:{
 //   functionRicerca(){
@@ -37,13 +37,13 @@ mounted() {
 //   }
 // },
 updated() {
-  console.log("input text aggiornato : " , this.ricerca) //test log
-  console.log(this.lista);
+  // console.log("input text aggiornato : " , this.ricerca) //test log
+  // console.log(this.lista);
 },
 methods: {
-  visualizza(url2){ //da implementare prima la pagina del singolo pokemon
-    console.log("url singolo pokemon" , url2); 
-  }
+  // visualizza(url2){ //da implementare prima la pagina del singolo pokemon
+  //   console.log("url singolo pokemon" , url2); 
+  // }
 },
 }
 </script>
