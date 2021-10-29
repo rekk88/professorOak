@@ -78,6 +78,7 @@ export default {
         buttons : [],
         searchP : "",
         fList : [],
+        testId : [],
         baseList : this.staticList,
         id : "",
         show : false,
@@ -107,6 +108,7 @@ export default {
       loadPokemon( pokemon ) //element  = pokemon per reference
       {
           this.fList = []; //svuoto il vettore
+          //this.testId = [];
           // setTimeout(3000);
           console.log("loadPokemon" , "list : " , this.list);
          
@@ -138,9 +140,9 @@ export default {
                 else type2 = '';
                 setTimeout(()=>{
                   this.fList.push({...pokemon, descr, type1, type2 });
-
+                  this.testId.push(obj2.data.id);
                 },1000);
-                console.log(pokemon.name);
+                // console.log(pokemon.name);
 
           }));               
 
@@ -161,10 +163,31 @@ export default {
 
                }
               console.log("delay list : " , this.list);
+              // this.testId.sort();
+              console.log("id pre sort : ",this.testId);
+             
+              // let l2 = this.testId.length;
+              let firstHalf = this.testId.slice(20, 39);
+              this.testId = firstHalf;
+              let l1 = this.testId.length;
+              console.log(l1);
+
+              for(let f = 0; f < 19; f++) {
+                for(let j = 0; j < 19; j++) {
+                  console.log("for");
+                  if (this.testId[j] > this.testId[j + 1]) {
+                    let temp = this.testId[j];
+                    this.testId[j] = this.testId[j + 1];
+                    this.testId[j + 1] = temp;
+                  }
+                }
+              }
+              console.log("id : ",this.testId);
+              // this.fList = this.list;
               this.show = true;
 
             
-            }, 1200);
+            }, 2000);
       },
 
       searchPokemon(text) 
@@ -200,8 +223,6 @@ export default {
         this.buttons.push(i);
       }
       // this.fList = this.list
-      console.log("pre reload");
-      console.log("post reload");
     
     },
     created() {
