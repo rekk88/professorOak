@@ -82,6 +82,10 @@ export default {
         baseList : this.staticList,
         id : "",
         show : false,
+        test : 10,
+        sorted : false,
+        sorted2 : false,
+        copiaLista : []
       }
     },
     methods: {
@@ -105,17 +109,17 @@ export default {
           return id
       },
 
-      loadPokemon( pokemon ) //element  = pokemon per reference
+      async loadPokemon( pokemon ) //element  = pokemon per reference
       {
           this.fList = []; //svuoto il vettore
           //this.testId = [];
           // setTimeout(3000);
-          console.log("loadPokemon" , "list : " , this.list);
+          // console.log("loadPokemon" , "list : " , this.list);
          
           let descr         = "";
           let type1         = "";
           let type2         = "";
-
+          let pokemonId = "";
           let descrUrl = "https://pokeapi.co/api/v2/pokemon-species/"+this.readId( pokemon.url )+"/";
           axios.all([
                   axios.get(pokemon.url), //chiamata per sprite e tipo del singolo pokemon
@@ -132,16 +136,16 @@ export default {
                 });
 
                 type1 = obj1.data.types[0].type;
-
+                pokemonId = obj2.data.id;
                 if (obj1.data.types.length == 2) {
                     type2 = obj1.data.types[1].type;
                 }
 
                 else type2 = '';
                 setTimeout(()=>{
-                  this.fList.push({...pokemon, descr, type1, type2 });
+                  this.fList.push({...pokemon, descr, type1, type2,pokemonId });
                   this.testId.push(obj2.data.id);
-                },1000);
+                },500);
                 // console.log(pokemon.name);
 
           }));               
@@ -151,7 +155,6 @@ export default {
       async reloadList()
       {
             // this.show = false;
-           
             setTimeout(()=>{ 
               //  this.list.forEach((element) => {
               //     // setTimeout(300);
@@ -169,25 +172,15 @@ export default {
               // let l2 = this.testId.length;
               let firstHalf = this.testId.slice(20, 39);
               this.testId = firstHalf;
-              let l1 = this.testId.length;
-              console.log(l1);
+              // let l1 = this.testId.length;
 
-              for(let f = 0; f < 19; f++) {
-                for(let j = 0; j < 19; j++) {
-                  console.log("for");
-                  if (this.testId[j] > this.testId[j + 1]) {
-                    let temp = this.testId[j];
-                    this.testId[j] = this.testId[j + 1];
-                    this.testId[j + 1] = temp;
-                  }
-                }
-              }
+         
               console.log("id : ",this.testId);
               // this.fList = this.list;
               this.show = true;
 
             
-            }, 2000);
+            }, 1000);
       },
 
       searchPokemon(text) 
@@ -223,11 +216,63 @@ export default {
         this.buttons.push(i);
       }
       // this.fList = this.list
-    
+      
+      console.log("mounted",this.testId.length);
     },
     created() {
       // this.fList = this.list
       this.reloadList();
+      console.log("created",this.testId.length);
+      
+    },
+    updated() {
+      //sorting ids array
+      if (this.testId.length == 20) {
+        console.log("updated",this.testId.length);
+        for(let f = 0; f < this.testId.length; f++) {
+          for(let j = 0; j < this.testId.length; j++) {
+            console.log("for");
+            if(this.testId[j] > this.testId[j + 1]){
+              let temp = this.testId[j];
+              this.testId[j] = this.testId[j + 1];
+              this.testId[j + 1] = temp;
+            }
+          }
+        }
+        this.sorted = true;
+        
+      }
+      if (this.sorted) {
+       console.log("updated hook ids : ",this.testId);
+        
+      }
+      //sorting objects array
+      if (this.fList.length == 20) {
+        console.log("updated",this.fList.length);
+        console.log("updated flist : ",this.fList);
+        this.copiaLista = this.fList;
+        console.log("copia array : ",this.copiaLista);
+        setTimeout(()=>{
+          // console.log("timeout");
+
+         for(let f = 0; f < this.copiaLista.length; f++) {
+            for(let j = 0; j < this.copiaLista.length; j++) {
+              console.log("for");
+              if(this.copiaLista[j].pokemonId > this.copiaLista[j+1].pokemonId){
+                let temp = this.copiaLista[j];
+                this.copiaLista[j] = this.copiaLista[j+1];
+                this.copiaLista[j+1] = temp;
+              }
+            }
+          }
+          this.sorted2 = true;
+          if (this.sorted2) {
+                  console.log("sorted array : ",this.copiaLista);          
+          }
+        },2000);
+        
+       
+      }
       
     },
 }
