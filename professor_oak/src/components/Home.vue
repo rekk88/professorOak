@@ -41,10 +41,14 @@
                   <div class="" v-if="show"> <!--v-if per la ricerca da header -->
                       <Card 
                           :pokemon="item" 
+                          :p="show"
                           ref="Card"                    
                       /> 
                   </div>  
                 </div>
+            </div>
+            <div>
+              <a href="Pagina.vue">seconda pagina</a>
             </div>
           </div>
         </div>
@@ -62,7 +66,7 @@ import Card from './Card.vue'
 import Header from './Header.vue'
 import Logo from './Logo.vue'
 import Sidebar from './Sidebar.vue'
-
+// import Pagina from './Pagina.vue'
 export default {
     name: 'Home',
     
@@ -70,7 +74,8 @@ export default {
       Logo,
       Header,
       Card,
-      Sidebar
+      Sidebar,
+      // Pagina
     },
     //prop in arrivo da App (con il risultato della chiamata axios)
     props:["list", "type", "indice","staticList"], //list : lista pokemon ; type : lista tipi 
@@ -141,7 +146,12 @@ export default {
           // }
           // else type2 = '';
           this.fList.push({...pokemon,pokemonID});
-
+          setTimeout(() => {
+            this.show =false;
+          }, 300);
+          setTimeout(() => {
+            this.show=true;
+          }, 500);
           // console.log(response1.data);
           // console.log(response2.data);
 

@@ -43,17 +43,19 @@ export default {
      sprite : "",
      descriptionText:"",
      official_artwork : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+this.readId()+".png",
-     descriptionUrl : "",
+     descriptionUrl: "https://pokeapi.co/api/v2/pokemon-species/"+this.pokemon.pokemonID+"/",
+     testP: this.p,
      type1: "",
      type2: "",
      id: this.pokemon.pokemonID,
-     show:false,
+    //  show:false,
      vai:0,
      descrizione:0,
+     n:0
    }
  },
 
-props:["pokemon"],
+props:["pokemon","p"],
 methods: {
   refsRead(){
     console.log(this.$refs);
@@ -85,22 +87,33 @@ methods: {
     // else this.type2 = '';
     axios.all([
       axios.get(this.pokemon.url), //chiamata per sprite e tipo del singolo pokemon
-      axios.get(this.descriptionUrl) //chiamata per la descrizione del pokemon
     ])
-    .then(axios.spread((obj1, obj2)=>{
+    .then(axios.spread((obj1)=>{
     // console.log("obj 1 : ",obj1.data.sprites.front_default);
     // console.log("obj 1 :",obj1.data.types[0].type);s
     console.log(obj1.data.id);
+    this.descriptionUrl="https://pokeapi.co/api/v2/pokemon-species/"+obj1.data.id+"/";
 
+      axios.get(this.descriptionUrl)
+        .then(response =>{
+          // console.log(response.data.flavor_text_entries);
+          response.data.flavor_text_entries.forEach(element =>{
+            if (element.language.name == "en") {
+              this.descriptionText = element.flavor_text;
+              // console.log(this.descriptionText);
+            }
+          })
+        })
+    // console.log(response2.data);
     this.sprite = obj1.data.sprites.front_default;
-    obj2.data.flavor_text_entries.forEach(element => {
-      // console.log("flavor text : ",element);
-      if(element.language.name == "en"){
-        this.descriptionText = element.flavor_text;
-        // console.log(this.descriptionText);
-        // console.log(obj2.data.flavor_text_entries[0].flavor_text);
-      }
-    });
+    // obj2.data.flavor_text_entries.forEach(element => {
+    //   // console.log("flavor text : ",element);
+    //   if(element.language.name == "en"){
+    //     this.descriptionText = element.flavor_text;
+    //     // console.log(this.descriptionText);
+    //     // console.log(obj2.data.flavor_text_entries[0].flavor_text);
+    //   }
+    // });
     // this.descriptionText = obj2.data.flavor_text_entries[0].flavor_text;
 
     this.type1 = obj1.data.types[0].type;
@@ -111,6 +124,10 @@ methods: {
     // console.log(this.type1.name);
     this.descrizione++;
     this.vai++;
+    this.testP=false;
+    setTimeout(() => {
+      this.testP=true;
+    }, 500);
   }));
 
   },
@@ -118,16 +135,32 @@ methods: {
 
 },
 mounted() {
- this.show = false;
- this.show = true;
+
 },
 
 created() {
  this.img_type_Getter();
-  
+ console.log("created");
+  this.n=0;
 },
 updated() {
   this.id = this.pokemon.pokemonID;
+  this.descriptionUrl = "https://pokeapi.co/api/v2/pokemon-species/"+this.pokemon.pokemonID+"/";
+
+  if(this.n < 1){
+     axios.get(this.descriptionUrl)
+        .then(response =>{
+          // console.log(response.data.flavor_text_entries);
+          response.data.flavor_text_entries.forEach(element =>{
+            if (element.language.name == "en") {
+              this.descriptionText = element.flavor_text;
+              // console.log(this.descriptionText);
+            }
+          })
+        })
+    this.n++;
+  }
+
 },
 }
 </script>
