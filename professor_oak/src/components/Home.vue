@@ -36,11 +36,10 @@
           
         <div class="container d-flex justify-content-center align-items-start col-10 py-3 overflow scrollbar">
           <div>
-            <div class="row row-cols-3">
+            <div class="row row-cols-3" :key="cardKey">
                 <div class="col card_wrap" v-for="(item, index2) in fList" :key="index2"> 
                   <div class="" v-if="show"> <!--v-if per la ricerca da header -->
                       <Card 
-                          :key="cardKey"
                           :pokemon="item" 
                           ref="Card"                    
                       /> 
@@ -58,7 +57,7 @@
 
 <script>
 // import axios from 'axios'
-import axios from 'axios'
+// import axios from 'axios'
 import Card from './Card.vue'
 import Header from './Header.vue'
 import Logo from './Logo.vue'
@@ -117,41 +116,85 @@ export default {
 
       async loadPokemon( pokemon ) //element  = pokemon per reference
       {
-          this.fList = []; //svuoto il vettore
+          if (this.fList.length > 20) { //tolgo sempre la metà del vettore che non mi serve più
+            console.log("slice");
+            let firstHalf = this.fList.slice(20, 39);
+            this.fList = firstHalf;
+            // this.fList = []; //svuoto il vettore
+          }
          
-          let descr         = "";
-          let type1         = "";
-          let type2         = "";
-          let stronzo = "";
-          let descrUrl = "https://pokeapi.co/api/v2/pokemon-species/"+this.readId( pokemon.url )+"/";
-          axios.all([
-                  axios.get(pokemon.url), //chiamata per sprite e tipo del singolo pokemon
-                  axios.get(descrUrl) //chiamata per la descrizione del pokemon
-          ])
-          .then(axios.spread((obj1, obj2)=>{  
+          // let descr         = "";
+          // let type1         = "";
+          // let type2         = "";
+          // let stronzo = "";
+          // let descrUrl = "https://pokeapi.co/api/v2/pokemon-species/"+this.readId( pokemon.url )+"/";
+          let pokemonID = this.readId(pokemon.url);
+          console.log(pokemonID);
+          console.log(pokemon);
+          // this.fList.push({...pokemon, descr, type1, type2,stronzo });
+
+          // let response1 = await axios.get(descrUrl);
+          // let response2 = await axios.get(pokemon.url);
+          // type1 = response2.data.types[0].type;
+          // if (response2.data.types.length == 2) {
+          //   type2 = response2.data.types[1].type;
+          // }
+          // else type2 = '';
+          this.fList.push({...pokemon,pokemonID});
+
+          // console.log(response1.data);
+          // console.log(response2.data);
+
+
+          // setTimeout(()=>{
+          //    response1.data.flavor_text_entries.forEach(element =>{
+          //     if(element.language.name == "en"){
+          //         descr = element.flavor_text;
+          //       }
+          //     });
+          // type1 = response2.data.types[0].type;
+          // stronzo = response2.data.id;
+          // if (response2.data.types.length == 2) {
+          //   type2 = response2.data.types[1].type;
+          // }
+          // else type2 = '';
+          //   setTimeout(()=>{
+          //     this.fList.push({...pokemon, descr, type1, type2,stronzo });
+          //     this.testId.push(response2.data.id);
+          //   },0);
+          // },500);
+         
+          //console.log(pokemon.name);
+
+          
+          // axios.all([
+          //         await axios.get(pokemon.url), //chiamata per sprite e tipo del singolo pokemon
+          //         await axios.get(descrUrl) //chiamata per la descrizione del pokemon
+          // ])
+          // .then(axios.spread((obj1, obj2)=>{  
               
-                obj2.data.flavor_text_entries.forEach(element => {
+          //       obj2.data.flavor_text_entries.forEach(element => {
                   
-                  if(element.language.name == "en"){
-                      descr = element.flavor_text;
+          //         if(element.language.name == "en"){
+          //             descr = element.flavor_text;
                       
-                  }
-                });
+          //         }
+          //       });
 
-                type1 = obj1.data.types[0].type;
-                stronzo = obj2.data.id;
-                if (obj1.data.types.length == 2) {
-                    type2 = obj1.data.types[1].type;
-                }
+          //       type1 = obj1.data.types[0].type;
+          //       stronzo = obj2.data.id;
+          //       if (obj1.data.types.length == 2) {
+          //           type2 = obj1.data.types[1].type;
+          //       }
 
-                else type2 = '';
-                setTimeout(()=>{
-                  this.fList.push({...pokemon, descr, type1, type2,stronzo });
-                  this.testId.push(obj2.data.id);
-                },500);
-                // console.log(pokemon.name);
+          //       else type2 = '';
+          //       setTimeout(()=>{
+          //         this.fList.push({...pokemon, descr, type1, type2,stronzo });
+          //         this.testId.push(obj2.data.id);
+          //       },500);
+          //       // console.log(pokemon.name);
 
-          }));               
+          // }));               
 
       },
 
@@ -188,6 +231,8 @@ export default {
 
             
             }, 1000);
+            // this.cardKey++;
+
       },
 
       searchPokemon(text) 
@@ -235,66 +280,66 @@ export default {
     },
     updated() {
       //sorting ids array
-      if (this.testId.length == 20) {
-        console.log("updated",this.testId.length);
-        for(let f = 0; f < this.testId.length; f++) {
-          for(let j = 0; j < this.testId.length; j++) {
-            console.log("for");
-            if(this.testId[j] > this.testId[j + 1]){
-              let temp = this.testId[j];
-              this.testId[j] = this.testId[j + 1];
-              this.testId[j + 1] = temp;
-            }
-          }
-        }
-        this.sorted = true;
+      // if (this.testId.length == 20) {
+      //   console.log("updated",this.testId.length);
+      //   for(let f = 0; f < this.testId.length; f++) {
+      //     for(let j = 0; j < this.testId.length; j++) {
+      //       console.log("for");
+      //       if(this.testId[j] > this.testId[j + 1]){
+      //         let temp = this.testId[j];
+      //         this.testId[j] = this.testId[j + 1];
+      //         this.testId[j + 1] = temp;
+      //       }
+      //     }
+      //   }
+      //   this.sorted = true;
 
-        setTimeout(()=>{
-          this.index2 = 3;
-        },2000)
+      //   setTimeout(()=>{
+      //     this.index2 = 3;
+      //   },2000)
         
       }
-      if (this.sorted) {
-       console.log("updated hook ids : ",this.testId);
+    //   if (this.sorted) {
+    //    console.log("updated hook ids : ",this.testId);
         
-      }
-      //sorting objects array
-      if (this.fList.length == 20) {
-        console.log("updated",this.fList.length);
-        console.log("updated flist : ",this.fList);
-        // this.copiaLista = this.fList;
-        console.log("copia array : ",this.copiaLista);
-        // setTimeout(()=>{
-          // console.log("timeout");
+    //   }
+    //   // sorting objects array
+    //   if (this.fList.length == 20) {
+    //     console.log("updated",this.fList.length);
+    //     console.log("updated flist : ",this.fList);
+    //     // this.copiaLista = this.fList;
+    //     console.log("copia array : ",this.copiaLista);
+    //     // setTimeout(()=>{
+    //       // console.log("timeout");
 
-         for(let f = 0; f < this.fList.length; f++) {
-            for(let j = 0; j < this.fList.length; j++) {
-              console.log("for");
-              if (j < 19) {
-                if(this.fList[j].stronzo > this.fList[j+1].stronzo){
-                  let temp = this.fList[j];
-                  this.fList[j] = this.fList[j+1];
-                  this.fList[j+1] = temp;
-                }
-              }
+    //      for(let f = 0; f < this.fList.length; f++) {
+    //         for(let j = 0; j < this.fList.length - 1; j++) {
+    //           console.log("for");
+    //           // if (j < 19) {
+    //             if(this.fList[j].stronzo > this.fList[j+1].stronzo){
+    //               let temp = this.fList[j];
+    //               this.fList[j] = this.fList[j+1];
+    //               this.fList[j+1] = temp;
+    //             }
+    //           // }
               
-            }
-          }
-          this.sorted2 = true;
-          this.sorted3 = true;
-          if (this.sorted3== true && this.render==false) {
-            this.cardKey += 1; //re render key
-          }
-          if (this.sorted3) {
-                  console.log("sorted array : ",this.fList);          
-          }
-          this.sortedList = this.fList;
-        // },100);
+    //         }
+    //       }
+    //       this.sorted2 = true;
+    //       this.sorted3 = true;
+    //       // if (this.sorted3== true && this.render==false) {
+    //       //   // this.cardKey += 1; //re render key
+    //       // }
+    //       if (this.sorted3) {
+    //               console.log("sorted array : ",this.fList);          
+    //       }
+    //       this.sortedList = this.fList;
+    //     // },100);
         
        
-      }
+    //   }
       
-    },
+    // },
 }
 </script>
 
