@@ -8,7 +8,7 @@
           @searchForm="searchPokemon"
         />
       </div>
-        
+      
       <div class="container text-center mb-3 button_container_wrap">
         <div class="button_container">
           <div class="d-inline-block" v-for="(button,index) in buttons" :key="index">
@@ -49,8 +49,34 @@
             </div>
             
           </div>
+
         </div>
       </div>
+      <!-- creators section -->
+      <div class="made_by text-center">Made By</div>
+
+      <div class="container mt-2 d-flex justify-content-center">
+        <div class="creators d-flex">
+          <span>
+            <img  src="../assets/images/carmelo.jpg" alt="carmelo">
+            <span>
+              <!-- <i class="bi bi-linkedin"></i> -->
+              <a href="https://www.linkedin.com/in/carmelo-granvillano/" target="_blank" class="d-block text-center"><i class="bi bi-linkedin me-2"></i>Carmelo</a>
+
+            </span>
+          </span>
+          <span class="ms-5">
+            <img  src="../assets/images/maicol.jpg" alt="carmelo">
+            <span>
+              <!-- <i class="bi bi-linkedin"></i> -->
+              <a href="https://www.linkedin.com/in/maicolmatteoli/" target="_blank" class="d-block text-center"><i class="bi bi-linkedin me-2"></i>Maicol</a>
+
+            </span>
+          </span>
+         
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
@@ -237,47 +263,7 @@ export default {
       //   },2000)
         
       }
-    //   if (this.sorted) {
-    //    console.log("updated hook ids : ",this.testId);
-        
-    //   }
-    //   // sorting objects array
-    //   if (this.fList.length == 20) {
-    //     console.log("updated",this.fList.length);
-    //     console.log("updated flist : ",this.fList);
-    //     // this.copiaLista = this.fList;
-    //     console.log("copia array : ",this.copiaLista);
-    //     // setTimeout(()=>{
-    //       // console.log("timeout");
-
-    //      for(let f = 0; f < this.fList.length; f++) {
-    //         for(let j = 0; j < this.fList.length - 1; j++) {
-    //           console.log("for");
-    //           // if (j < 19) {
-    //             if(this.fList[j].stronzo > this.fList[j+1].stronzo){
-    //               let temp = this.fList[j];
-    //               this.fList[j] = this.fList[j+1];
-    //               this.fList[j+1] = temp;
-    //             }
-    //           // }
-              
-    //         }
-    //       }
-    //       this.sorted2 = true;
-    //       this.sorted3 = true;
-    //       // if (this.sorted3== true && this.render==false) {
-    //       //   // this.cardKey += 1; //re render key
-    //       // }
-    //       if (this.sorted3) {
-    //               console.log("sorted array : ",this.fList);          
-    //       }
-    //       this.sortedList = this.fList;
-    //     // },100);
-        
-       
-    //   }
-      
-    // },
+    
 }
 </script>
 
@@ -304,13 +290,24 @@ export default {
   color: var(--grey);
 }
 .home_wrap {
-  height: 100vh;
-  background-image: url('../assets/images/home_bg2.jpg');
-  background-size: initial;
-  background-position: cover;
-  background-repeat: no-repeat;
+  // height: 100vh;
+  height: calc(100vh - 70px);
+  // background-image: url('../assets/images/home_bg2.jpg');
+  // background-size: initial;
+  // background-position: cover;
+  // background-repeat: no-repeat;
   .home_content{
-    height: 100%;
+    // height: 100%;
+    height: calc(100% - 70px);
+    .creators{
+      span{
+
+        img{
+          height: 100px;
+        }
+      }
+      
+    }
     .header_wrap{
       height: 35%;
     }

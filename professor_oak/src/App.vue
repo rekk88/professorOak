@@ -95,5 +95,10 @@ export default {
   // font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  background-image: url(/img/home_bg2.569670ad.jpg);
+  background-size: initial;
+  // background-position: cover;
+  background-repeat: no-repeat;
 }
 </style>
