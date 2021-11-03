@@ -20,9 +20,9 @@
       <!-- type here -->
       <h6 class="text-center">
         <!-- first -->
-        <span :class="pokemon.type1">{{pokemon.type1}}</span> 
+        <span :class="type1.name">{{type1.name}}</span> 
         <!-- second -->
-        <span :class="pokemon.type2">{{pokemon.type2}}</span>
+        <span :class="type2.name">{{type2.name}}</span>
       </h6>
 
       <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -73,12 +73,10 @@ methods: {
   },
   async img_type_Getter()
   {
-    console.log("SEI UNO STRONZONE");
     this.sprite="";
     this.descriptionText=" ";
     this.official_artwork = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+this.id+".png",
     this.descriptionUrl="https://pokeapi.co/api/v2/pokemon-species/"+this.pokemon.pokemonID+"/",
-    console.log( this.official_artwork )
     // let response2 = await axios.get(this.pokemon.url);
     // this.type1 = response2.data.types[0].type;
     // if (response2.data.types.length == 2) {
@@ -90,8 +88,8 @@ methods: {
     ])
     .then(axios.spread((obj1)=>{
     // console.log("obj 1 : ",obj1.data.sprites.front_default);
-    // console.log("obj 1 :",obj1.data.types[0].type);s
-    console.log(obj1.data.id);
+    console.log("obj 1 :",obj1.data.types[0].type);
+    // console.log(obj1.data.id);
     this.descriptionUrl="https://pokeapi.co/api/v2/pokemon-species/"+obj1.data.id+"/";
 
       axios.get(this.descriptionUrl)
@@ -106,21 +104,13 @@ methods: {
         })
     // console.log(response2.data);
     this.sprite = obj1.data.sprites.front_default;
-    // obj2.data.flavor_text_entries.forEach(element => {
-    //   // console.log("flavor text : ",element);
-    //   if(element.language.name == "en"){
-    //     this.descriptionText = element.flavor_text;
-    //     // console.log(this.descriptionText);
-    //     // console.log(obj2.data.flavor_text_entries[0].flavor_text);
-    //   }
-    // });
-    // this.descriptionText = obj2.data.flavor_text_entries[0].flavor_text;
+    
 
     this.type1 = obj1.data.types[0].type;
-      if (obj1.data.types.length == 2) {
-        this.type2 = obj1.data.types[1].type;
-      }
-      else this.type2 = '';
+    if (obj1.data.types.length == 2) {
+      this.type2 = obj1.data.types[1].type;
+    }
+    else this.type2 = '';
     // console.log(this.type1.name);
     this.descrizione++;
     this.vai++;
@@ -140,7 +130,7 @@ mounted() {
 
 created() {
  this.img_type_Getter();
- console.log("created");
+//  console.log("created");
   this.n=0;
 },
 updated() {

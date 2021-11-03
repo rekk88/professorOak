@@ -47,9 +47,7 @@
                   </div>  
                 </div>
             </div>
-            <div>
-              <a href="Pagina.vue">seconda pagina</a>
-            </div>
+            
           </div>
         </div>
       </div>
@@ -128,83 +126,18 @@ export default {
             // this.fList = []; //svuoto il vettore
           }
          
-          // let descr         = "";
-          // let type1         = "";
-          // let type2         = "";
-          // let stronzo = "";
-          // let descrUrl = "https://pokeapi.co/api/v2/pokemon-species/"+this.readId( pokemon.url )+"/";
           let pokemonID = this.readId(pokemon.url);
           console.log(pokemonID);
           console.log(pokemon);
-          // this.fList.push({...pokemon, descr, type1, type2,stronzo });
-
-          // let response1 = await axios.get(descrUrl);
-          // let response2 = await axios.get(pokemon.url);
-          // type1 = response2.data.types[0].type;
-          // if (response2.data.types.length == 2) {
-          //   type2 = response2.data.types[1].type;
-          // }
-          // else type2 = '';
+       
           this.fList.push({...pokemon,pokemonID});
           setTimeout(() => {
             this.show =false;
-          }, 300);
+          }, 200);
           setTimeout(() => {
             this.show=true;
-          }, 500);
-          // console.log(response1.data);
-          // console.log(response2.data);
-
-
-          // setTimeout(()=>{
-          //    response1.data.flavor_text_entries.forEach(element =>{
-          //     if(element.language.name == "en"){
-          //         descr = element.flavor_text;
-          //       }
-          //     });
-          // type1 = response2.data.types[0].type;
-          // stronzo = response2.data.id;
-          // if (response2.data.types.length == 2) {
-          //   type2 = response2.data.types[1].type;
-          // }
-          // else type2 = '';
-          //   setTimeout(()=>{
-          //     this.fList.push({...pokemon, descr, type1, type2,stronzo });
-          //     this.testId.push(response2.data.id);
-          //   },0);
-          // },500);
-         
-          //console.log(pokemon.name);
-
-          
-          // axios.all([
-          //         await axios.get(pokemon.url), //chiamata per sprite e tipo del singolo pokemon
-          //         await axios.get(descrUrl) //chiamata per la descrizione del pokemon
-          // ])
-          // .then(axios.spread((obj1, obj2)=>{  
-              
-          //       obj2.data.flavor_text_entries.forEach(element => {
-                  
-          //         if(element.language.name == "en"){
-          //             descr = element.flavor_text;
-                      
-          //         }
-          //       });
-
-          //       type1 = obj1.data.types[0].type;
-          //       stronzo = obj2.data.id;
-          //       if (obj1.data.types.length == 2) {
-          //           type2 = obj1.data.types[1].type;
-          //       }
-
-          //       else type2 = '';
-          //       setTimeout(()=>{
-          //         this.fList.push({...pokemon, descr, type1, type2,stronzo });
-          //         this.testId.push(obj2.data.id);
-          //       },500);
-          //       // console.log(pokemon.name);
-
-          // }));               
+          }, 250);
+                     
 
       },
 
@@ -215,11 +148,6 @@ export default {
             this.sortedList = [];
             // this.show = false;
             setTimeout(()=>{ 
-              //  this.list.forEach((element) => {
-              //     // setTimeout(300);
-              //     this.loadPokemon( element )            
-              //  });
-
               for(let element of this.list){
                  this.loadPokemon(element)
 
