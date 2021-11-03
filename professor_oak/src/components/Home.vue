@@ -26,7 +26,7 @@
       </div>
       
       <div class="main_content_wrap container d-flex p-0 rounded">
-        <div class="col">
+        <div class="col d-none">
           <div class="h_100">
             <div class="p-0 h_100">
               <Sidebar :lista="list" :n="indice"/>
