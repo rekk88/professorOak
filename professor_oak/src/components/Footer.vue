@@ -48,7 +48,7 @@ export default {
 #creator_box {
   position: absolute;
   bottom: 80px;
-  left: 40%;
+  left: 42%;
   transform: translate(50%, 50%);
 
   img {
