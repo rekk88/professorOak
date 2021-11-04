@@ -96,7 +96,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
-  background-image: url(/img/home_bg2.569670ad.jpg);
+  // background-image: url(/img/home_bg2.569670ad.jpg);
+  background-image: url('./assets/images/home_bg2.jpg');
+
   background-size: initial;
   // background-position: cover;
   background-repeat: no-repeat;
