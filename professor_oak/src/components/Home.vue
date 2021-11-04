@@ -7,6 +7,7 @@
           :tipi="type"
           @searchForm="searchPokemon"
         />
+      <Footer/>
       </div>
       
       <div class="container text-center mb-3 button_container_wrap">
@@ -52,31 +53,6 @@
 
         </div>
       </div>
-      <!-- creators section -->
-      <div class="made_by text-center">Made By</div>
-
-      <div class="container mt-2 d-flex justify-content-center">
-        <div class="creators d-flex">
-          <span>
-            <img  src="../assets/images/carmelo.jpg" alt="carmelo">
-            <span>
-              <!-- <i class="bi bi-linkedin"></i> -->
-              <a href="https://www.linkedin.com/in/carmelo-granvillano/" target="_blank" class="d-block text-center"><i class="bi bi-linkedin me-2"></i>Carmelo</a>
-
-            </span>
-          </span>
-          <span class="ms-5">
-            <img  src="../assets/images/maicol.jpg" alt="carmelo">
-            <span>
-              <!-- <i class="bi bi-linkedin"></i> -->
-              <a href="https://www.linkedin.com/in/maicolmatteoli/" target="_blank" class="d-block text-center"><i class="bi bi-linkedin me-2"></i>Maicol</a>
-
-            </span>
-          </span>
-         
-        </div>
-      </div>
-
     </div>
   </div>
 </template>
@@ -90,6 +66,7 @@ import Card from './Card.vue'
 import Header from './Header.vue'
 import Logo from './Logo.vue'
 import Sidebar from './Sidebar.vue'
+import Footer from './Footer.vue'
 // import Pagina from './Pagina.vue'
 export default {
     name: 'Home',
@@ -99,6 +76,7 @@ export default {
       Header,
       Card,
       Sidebar,
+      Footer
       // Pagina
     },
     //prop in arrivo da App (con il risultato della chiamata axios)

@@ -126,7 +126,7 @@ input:focus {
 }
 
 img {
-  width: 85px;
+  width: 70px;
 }
 
 .pokeFortunato {

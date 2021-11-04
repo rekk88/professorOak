@@ -9,7 +9,8 @@
     "deploy": "sh-deploy.sh"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "@popperjs/core": "^2.10.2",
+    "axios": "^0.21.4",
     "bootstrap": "^5.1.0",
     "chmod": "^0.2.1",
     "core-js": "^3.6.5",
