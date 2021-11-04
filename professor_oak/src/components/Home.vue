@@ -14,11 +14,11 @@
         <div class="button_container">
           <div class="d-inline-block" v-for="(button,index) in buttons" :key="index">
             <div v-if="index < 44">
-              <div class="test_button"  @click="page(button)">
+              <div class="box_button" id="clicked" @click="page(button)">
                 {{button}}-{{button + 20}}
               </div>
             </div>
-            <div class="test_button" v-else @click="page(880)">
+            <div class="box_button" v-else @click="page(880)">
               881-898
             </div>
           </div>
@@ -262,7 +262,7 @@ export default {
   border-radius: 10px !important;
 }
 
-.test_button {
+.box_button {
   padding: 1px 6px;
   border-radius: 15px;
   color: var(--grey);
@@ -274,6 +274,11 @@ export default {
     transition: .15s;
   }
 }
+
+#clicked:active { 
+  background-color: var(--grey);
+}
+
 
 
 
