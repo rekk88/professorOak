@@ -45,10 +45,10 @@
       <div 
         v-if="pokeSprite != ''" 
         class="pokeFortunato my_nav p-0 m-0">
-        <span class="navbar-text tag_line m-0 p-0">Affronta la Lega solamente con: </span>
+        <span class="navbar-text tag_line m-0 p-0 pe-2">Affronta la Lega solamente con: </span>
         <span 
           v-for="(item, index) in pokemonListRandom" :key="index" 
-          class="text-capitalize m-0 p-0">
+          class="text-capitalize m-0 p-0 pe-2">
           <a :href="item.url" class="navbar-text text-decoration-none tag_line m-0 p-0">{{item.name}}</a>
         </span>
         <img 
@@ -137,7 +137,14 @@ img {
 }
 
 .pokeFortunato {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-10px, 10px);
   width: 35%;
+
+  background-color: var(--transparent-grey);
+
   margin: 0 auto!important;
 }
 </style>
