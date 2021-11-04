@@ -17,7 +17,6 @@
                 src="../assets/images/carmelo.jpg" 
                 alt="Carmelo Granvillano">
           </a>
-
           <div class="text-center">megralo</div>
         </div>
 
@@ -30,7 +29,6 @@
                 src="../assets/images/maicol.jpg" 
                 alt="Maicol Matteoli">
           </a>
-
           <div class="text-center">rakaro</div>
         </div> 
       </div>

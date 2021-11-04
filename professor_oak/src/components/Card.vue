@@ -165,13 +165,13 @@ updated() {
 
   .card-img-top {
     // background-color: var(--grey-card);
-    background-color: var(--dark-grey);
+    background-color: var(--grey);
     backdrop-filter: blur(5px);
 
     border: 1px solid var(--ultra-transparent-grey);
     border-radius: 6px;
-    box-shadow: -1px 1px 5px 9px var(--ultra-transparent-grey);
-    padding: 15px;
+    box-shadow: -1px 2px 6px 10px var(--ultra-transparent-grey);
+    padding: 25px;
   }
 
   .card-body {
@@ -184,6 +184,6 @@ updated() {
     }
   }
 
-  padding: 0px 55px;
+  padding: 0px 60px;
 }
 </style>

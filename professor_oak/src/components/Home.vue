@@ -13,11 +13,10 @@
       <div class="container text-center mb-3 button_container_wrap">
         <div class="button_container">
           <div class="d-inline-block" v-for="(button,index) in buttons" :key="index">
-            <div v-if="index < 44"> 
+            <div v-if="index < 44">
               <div class="test_button"  @click="page(button)">
                 {{button}}-{{button + 20}}
               </div>
-             
             </div>
             <div class="test_button" v-else @click="page(880)">
               881-898
@@ -48,9 +47,7 @@
                   </div>  
                 </div>
             </div>
-            
           </div>
-
         </div>
       </div>
     </div>
@@ -254,7 +251,9 @@ export default {
 .button_container{
   overflow-x: scroll;
   display: flex;
+  padding: 15px 0;
 }
+
 .button_container::-webkit-scrollbar{
   background-color: transparent;
 }
@@ -263,10 +262,21 @@ export default {
   border-radius: 10px !important;
 }
 
-.test_button{
-  padding: 0px 5px;
+.test_button {
+  padding: 1px 6px;
+  border-radius: 15px;
   color: var(--grey);
+
+  &:hover {
+    cursor: pointer;
+    color: var(--greenBulba);
+    background-color: var(--transparent-grey);
+    transition: .15s;
+  }
 }
+
+
+
 .home_wrap {
   // height: 100vh;
   height: calc(100vh - 70px);
@@ -277,15 +287,7 @@ export default {
   .home_content{
     // height: 100%;
     height: calc(100% - 70px);
-    .creators{
-      span{
 
-        img{
-          height: 100px;
-        }
-      }
-      
-    }
     .header_wrap{
       height: 35%;
     }
