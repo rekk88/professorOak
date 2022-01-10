@@ -52,7 +52,7 @@
 
         </div>
       </div>
-      <!-- creators section -->
+      <!-- creators section --> 
       <div class="made_by text-center">Made By</div>
 
       <div class="container mt-2 d-flex justify-content-center">
@@ -316,7 +316,6 @@ export default {
       box-shadow: -1px 1px 5px 9px var(--ultra-transparent-grey);
       .card_wrap{
         height: max-content;
-
       }
     }
   }
